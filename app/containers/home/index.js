@@ -16,7 +16,7 @@ class Home extends React.Component {
   render() {
     return (
       <div role="containers:Home">
-        <Link to="/todo">{store.title}</Link>
+        <Link to="/es2020">es2020</Link>
       </div>
     )
   }

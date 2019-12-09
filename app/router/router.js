@@ -1,8 +1,8 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
-import Home from '../containers/Home';
-import Todo from '../containers/Todo';
+import Home from '../containers/Home'
+import Es2020 from '../containers/es2020'
 
 export default class Routes extends React.Component {
   render() {
@@ -10,9 +10,9 @@ export default class Routes extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/todo" component={Todo} />
+          <Route path="/es2020" component={Es2020} />
         </Switch>
       </Router>
-    );
+    )
   }
 }
