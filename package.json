@@ -46,7 +46,7 @@
     "stylus-loader": "^3.0.1",
     "url-loader": "^0.5.8",
     "webpack": "^3.0.0",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
     "es6-promise": "^4.1.0",
