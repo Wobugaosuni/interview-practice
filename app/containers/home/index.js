@@ -20,6 +20,7 @@ class Home extends React.Component {
         <Link to="/key">key</Link>
         <Link to="/setState">setState</Link>
         <Link to="/pureCompoent">pureCompoent</Link>
+        <Link to="/hooks">hooks</Link>
       </div>
     )
   }

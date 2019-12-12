@@ -6,6 +6,7 @@ import Es2020 from '../containers/es2020'
 import Key from '../containers/key'
 import SetState from '../containers/setState'
 import PureCompoent from '../containers/pureComponent'
+import Hooks from '../containers/hooks'
 
 export default class Routes extends React.Component {
   render() {
@@ -17,6 +18,7 @@ export default class Routes extends React.Component {
           <Route path="/key" component={Key} />
           <Route path="/setState" component={SetState} />
           <Route path="/pureCompoent" component={PureCompoent} />
+          <Route path="/hooks" component={Hooks} />
         </Switch>
       </Router>
     )
