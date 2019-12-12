@@ -22,7 +22,11 @@ class Hooks extends React.Component {
         {
           this.state.showTimer ? <Clear /> : <div>已清除</div>
         }
-        <button onClick={() => this.setState({showTimer: false})}>清除定时器</button>
+        <button onClick={() => this.setState({showTimer: !this.state.showTimer})}>
+          {
+            this.state.showTimer ? '清除定时器' : '重新计时'
+          }
+        </button>
       </div>
     )
   }
