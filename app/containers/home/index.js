@@ -15,8 +15,11 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div role="containers:Home">
+      <div role="containers:Home" style={{display: 'flex', flexDirection: 'column'}}>
         <Link to="/es2020">es2020</Link>
+        <Link to="/key">key</Link>
+        <Link to="/setState">setState</Link>
+        <Link to="/pureCompoent">pureCompoent</Link>
       </div>
     )
   }
