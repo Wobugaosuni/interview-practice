@@ -7,7 +7,6 @@ import UseMemo from './useMemo'
 import Update from './class-father'
 
 function Hooks() {
-
   const [showTimer, setTimer] = useState(false)
   const [a, setA] = useState('white')
   const [b, setB] = useState('yellow')
