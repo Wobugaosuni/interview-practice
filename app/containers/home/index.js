@@ -22,6 +22,7 @@ class Home extends React.Component {
         <Link to="/pureCompoent">pureCompoent</Link>
         <Link to="/hooks">hooks</Link>
         <Link to="/commonJS">commonJS</Link>
+        <Link to="/renderProps">renderProps</Link>
       </div>
     )
   }

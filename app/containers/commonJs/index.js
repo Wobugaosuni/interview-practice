@@ -34,14 +34,14 @@ function es6Test3() {
   console.log('es6Test2 重新赋值:', foo)  // foo is not defined
 }
 
-commonJSTest()
-commonJSTest2()
-es6Test()
-es6Test2()
-es6Test3()
 
 class commonJS extends React.Component {
   render() {
+    commonJSTest()
+    commonJSTest2()
+    es6Test()
+    es6Test2()
+    es6Test3()
 
     return (
       <div role="containers:commonJS">

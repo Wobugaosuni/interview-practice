@@ -8,6 +8,7 @@ import SetState from '../containers/setState'
 import PureCompoent from '../containers/pureComponent'
 import Hooks from '../containers/hooks'
 import commonJS from '../containers/commonJS'
+import RenderProps from '../containers/renderProps'
 
 export default class Routes extends React.Component {
   render() {
@@ -21,6 +22,7 @@ export default class Routes extends React.Component {
           <Route path="/pureCompoent" component={PureCompoent} />
           <Route path="/hooks" component={Hooks} />
           <Route path="/commonJS" component={commonJS} />
+          <Route path="/renderProps" component={RenderProps} />
         </Switch>
       </Router>
     )
