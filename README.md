@@ -14,4 +14,6 @@ npm start
 
 ## storybook 文档参考
 
-https://storybook.js.org/docs/guides/guide-react/
+- https://storybook.js.org/docs/guides/guide-react/
+
+- addon-info: https://github.com/storybookjs/storybook/tree/master/addons/info
