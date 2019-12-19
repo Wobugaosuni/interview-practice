@@ -32,13 +32,14 @@ function Hooks() {
         }
       </button>
 
-      <div className="FBH FBJS mt40">
+      <h2 className="mt40">Hooks 减少不必要的渲染</h2>
+      <div className="FBH FBJS">
         <div>
-          <h2>Hooks 减少不必要的渲染</h2>
+          <strong>Hooks</strong>
           <UseMemo a={a} b={b} />
         </div>
         <div>
-          <h2>class 下，需要用 shouldComponentUpdate 判断</h2>
+          <strong>class 下，需要用 shouldComponentUpdate 判断</strong>
           <Update a={a} b={b} />
         </div>
       </div>
