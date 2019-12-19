@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-// import './index.styl'
+import '../../common/stylus/base.styl'
+import './index.styl'
 
 import DidMount from './didMount'
 import Clear from './clear'
