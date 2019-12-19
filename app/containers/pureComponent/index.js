@@ -2,7 +2,7 @@ import React from 'react'
 import {observer} from 'mobx-react'
 
 import Store from './store'
-import './index.styl'
+// import './index.styl'
 import Pure from './pure'
 import PureObj from './pureObj'
 import Fun from './fun'

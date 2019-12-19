@@ -11,3 +11,7 @@ npm run mock
 ## 启动项目，使用的是8000的端口
 npm start
 ```
+
+## storybook 文档参考
+
+https://storybook.js.org/docs/guides/guide-react/
