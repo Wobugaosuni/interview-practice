@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 import Home from '../containers/Home'
 import Es2020 from '../containers/es2020'
-import Key from '../containers/key'
-import SetState from '../containers/setState'
-import PureCompoent from '../containers/pureComponent'
-import Hooks from '../containers/hooks'
+import Key from '../containers/react-key'
+import SetState from '../containers/react-setState'
+import PureCompoent from '../containers/react-pureComponent'
+import Hooks from '../containers/react-hooks'
 import commonJS from '../containers/commonJS'
-import RenderProps from '../containers/renderProps'
+import RenderProps from '../containers/react-renderProps'
 
 export default class Routes extends React.Component {
   render() {

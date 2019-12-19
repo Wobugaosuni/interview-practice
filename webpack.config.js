@@ -1,7 +1,7 @@
 var path = require('path');  // node.js自带的库
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+// var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'app/index.js'), // 入口文件
@@ -17,7 +17,7 @@ module.exports = {
 
   // webpack将所有的资源都看做是模块，而模块就需要加载器；主要定义一些loaders,定义哪些后缀名的文件应该用哪些loader
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.(js|jsx)$/,   // test: 检测哪些文件需要此loader，是一个正则表达式
         exclude: /node_modules/,  // exclude: 忽略哪些文件

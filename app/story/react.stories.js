@@ -1,6 +1,5 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import '@storybook/addon-notes/register'
 
 import PureComponent from '../containers/react-pureComponent'
 import Hooks from '../containers/react-hooks'
