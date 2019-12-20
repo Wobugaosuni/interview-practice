@@ -9,6 +9,7 @@ import PureCompoent from '../containers/react-pureComponent'
 import Hooks from '../containers/react-hooks'
 import commonJS from '../containers/commonJS'
 import RenderProps from '../containers/react-renderProps'
+import JsPromise from '../containers/js-promise'
 
 export default class Routes extends React.Component {
   render() {
@@ -23,6 +24,7 @@ export default class Routes extends React.Component {
           <Route path="/hooks" component={Hooks} />
           <Route path="/commonJS" component={commonJS} />
           <Route path="/renderProps" component={RenderProps} />
+          <Route path="/promise" component={JsPromise} />
         </Switch>
       </Router>
     )
