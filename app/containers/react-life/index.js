@@ -8,7 +8,7 @@ class ReactLife extends React.Component {
   render() {
     return (
       <div role="containers:ReactLife">
-        <h2>To Do List Demo</h2>
+        
       </div>
     )
   }

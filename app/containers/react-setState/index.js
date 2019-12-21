@@ -2,6 +2,7 @@ import React from 'react';
 import {observer} from 'mobx-react';
 
 import './index.styl';
+import '../../common/stylus/base.styl'
 
 @observer
 class SetState extends React.Component {
@@ -12,7 +13,20 @@ class SetState extends React.Component {
       val: 0,
       val2: 0,
       val3: 0,
-    };
+      count: 1
+    }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldComponentUpdate')
+    if (this.state.count === nextState.count) {
+      return false
+    }
+    return true
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate')
   }
 
   componentDidMount() {
@@ -47,6 +61,8 @@ class SetState extends React.Component {
   }
 
   render() {
+    console.log('render')
+    
     return (
       <div role="containers:SetState">
         <h2>SetState Demo</h2>
@@ -56,6 +72,10 @@ class SetState extends React.Component {
         <div className="hand" ref={el => this.counter = el}>
           {`原生事件 Counter is: ${this.state.val3}`}
         </div>
+
+        <h2>setState后调用的生命周期</h2>
+        <span>{this.state.count}</span>
+        <button onClick={() => this.setState({count: this.state.count + 1})}>调用</button>
       </div>
     );
   }
