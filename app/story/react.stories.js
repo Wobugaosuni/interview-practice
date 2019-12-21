@@ -13,6 +13,17 @@ import RenderProps from '../containers/react-renderProps'
 
 import SetState from '../containers/react-setState'
 
+import Life from '../containers/react-life'
+import lifeMd from '../containers/react-life/index.md'
+
+storiesOf('React', module)
+  .add('Life', () => <Life />, {
+    info: {
+      text: lifeMd,
+      propTablesExclude: [Life]
+    }
+  })
+
 storiesOf('React', module)
   .add('PureComponent', () => <PureComponent />, {
     info: {

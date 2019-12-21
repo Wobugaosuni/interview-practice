@@ -4,14 +4,14 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 import './index.styl'
 import '../../common/stylus/base.styl'
 
-class {{pageName}} extends React.Component {
+class ReactLife extends React.Component {
   render() {
     return (
-      <div role="containers:{{pageName}}">
+      <div role="containers:ReactLife">
         <h2>To Do List Demo</h2>
       </div>
     )
   }
 }
 
-export default {{pageName}}
+export default ReactLife
