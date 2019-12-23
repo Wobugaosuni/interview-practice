@@ -5,6 +5,11 @@ import './index.styl'
 import '../../common/stylus/base.styl'
 
 class JsWorker extends React.Component {
+  constructor(props) {
+    super(props)
+    this.myRef = React.createRef()
+  }
+
   onBtn1Click() {
     const startTime = +new Date()
     let total = 1
@@ -37,6 +42,9 @@ class JsWorker extends React.Component {
               total,
               spend: endTime - startTime,
             })
+
+            // 关闭
+            this.close()
           }
         }
     `
@@ -59,6 +67,36 @@ class JsWorker extends React.Component {
     }
   }
 
+  onBtn3Click() {
+    if (window.Worker) {
+      const myTask = `
+        onmessage = function (e) {
+          // 没有 window 对象
+          // console.log('window:', window) // window is not defined
+
+          // this 的指向：DedicatedWorkerGlobalScope
+          console.log('this:', this)
+
+          // 关闭
+          this.close()
+        }
+      `
+
+      const blob = new Blob([myTask])
+      const url = window.URL.createObjectURL(blob)
+
+      const myWorker = new Worker(url)
+
+      myWorker.postMessage({
+        // dom: this.myRef // 不能克隆dom
+      })
+
+      myWorker.onmessage = function(e) {
+
+      }
+    }
+  }
+
   render() {
     return (
       <div role="containers:JsWorker">
@@ -70,6 +108,10 @@ class JsWorker extends React.Component {
 
         <h2>点击 button 后，输入验证卡不卡</h2>
         <input type="text"></input>
+
+        <h2>worker 测试</h2>
+        <div ref={this.myRef}>hello</div>
+        <button onClick={() => this.onBtn3Click()}>worker 测试</button>
       </div>
     )
   }
