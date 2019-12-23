@@ -10,6 +10,9 @@ import ArrayMd from '../containers/js-array/index.md'
 import JsCommonJS from '../containers/commonJS'
 import CommonMd from '../containers/commonJS/index.md'
 
+import JsWorker from '../containers/js-worker'
+import WorkerMd from '../containers/js-worker/index.md'
+
 storiesOf('Js', module)
   .add('Promise', () => <JsPromise />, {
     info: {
@@ -31,5 +34,13 @@ storiesOf('Js', module)
     info: {
       text: CommonMd,
       propTablesExclude: [JsCommonJS]
+    }
+  })
+
+storiesOf('Js', module)
+  .add('web worker', () => <JsWorker />, {
+    info: {
+      text: WorkerMd,
+      propTablesExclude: [JsWorker]
     }
   })
