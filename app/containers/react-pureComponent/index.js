@@ -7,7 +7,7 @@ import '../../common/stylus/base.styl'
 import Pure from './pure'
 import PureObj from './pureObj'
 import Fun from './fun'
-import PureFun from './fun-pure'
+import Pure2 from './fun-pure'
 
 @observer
 class PureComponent extends React.Component {
@@ -72,12 +72,12 @@ class PureComponent extends React.Component {
         <PureObj items={itemsObj} />
         <button onClick={this.handleClick2}>update</button>
 
-        <h2 className="mt40">点击纯函数更新，props一样还是会触发</h2>
+        <h2 className="mt40">点击函数更新，props一样还是会触发</h2>
         <Fun times={times} />
         <button onClick={this.handleClick3}>update</button>
 
         <h2 className="mt40">点击pureComponent更新，props一样不会触发</h2>
-        <PureFun times={times2} />
+        <Pure2 times={times2} />
         <button onClick={this.handleClick4}>update</button>
       </div>
     )

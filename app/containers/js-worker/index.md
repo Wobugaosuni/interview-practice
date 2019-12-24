@@ -45,3 +45,4 @@ var myWorker = new Worker(window.URL.createObjectURL(blob));
 
 - [JavaScript 性能利器 —— Web Worker](https://juejin.im/post/5c10e5a9f265da611c26d634#heading-0)
 - [使用Web Worker优化代码](https://juejin.im/post/5d7745a7e51d4561bb33fbd6)
+- [浅谈HTML5 Web Worker](https://juejin.im/post/59c1b3645188250ea1502e46)
