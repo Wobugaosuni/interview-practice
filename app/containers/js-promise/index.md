@@ -40,34 +40,11 @@ catch后面还有then的话，会继续执行
 
 ## Promise.all 的实现
 
-```js
-
-/*Promise.all 接收promise 对象的数组作为参数，
-  当数组里 promise 对象全部变为resolve或 有 reject 状态的时候，
-  它才会去调用 .then 方法,它们是并发执行的。*/
-export function promiseAll(promises) {
-  let res = []
-  let count  = 0
-  return new Promise((resolve,reject) => {
-    promises.forEach((item, index) => {
-      Promise.resolve(item).then((value) => {
-        res[index] = value
-        count++
-        if(count === promises.length) {
-        return resolve(res)
-        }
-      }, err => {
-        return reject(err)
-      })
-
-    })
-  })
-}
-```
+**参数都是 Promise 的实例**
 
 ## promise里的请求超时，如何取消？(有赞)
 
-使用 promise.race 和 reject 结合
+使用 promise.race（**参数都是 Promise 的实例**） 和 reject 结合
 
 ```js
 const request = new Promise(function(resolve){

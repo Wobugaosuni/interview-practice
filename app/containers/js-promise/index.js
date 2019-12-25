@@ -7,6 +7,8 @@ import {createPromise, promiseByReduce, promiseByAsync, promiseByShift} from './
 import {promiseRace} from './promise-timeout'
 import {createPromise2, promiseAll} from './promise-all'
 
+import './promise-map'
+
 function clickTimeout() {
   function timeout(ms) {
     return new Promise((resolve, reject) => {
@@ -123,6 +125,25 @@ class JsPromise extends React.Component {
     })
   }
 
+  promiseMap() {
+    // 模仿请求
+    function get (i) {
+      console.log('In ', i)
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(i * 1000) 
+          console.log('Out', i, 'Out')
+        }, i * 1000)
+      })
+    }
+
+    const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // 十个请求的函数
+    const gets = list.map(item => () => get(item))
+
+    Promise.map(gets, 2)
+  }
+
   render() {
     return (
       <div role="containers:Promise">
@@ -166,6 +187,9 @@ class JsPromise extends React.Component {
 
         <h2>8. promise里的请求超时，如何取消？(有赞)</h2>
         <button onClick={() => promiseRace(6000)}>使用.race 方法</button>
+
+        <h2>9. 编程题：JS 实现一个带并发限制的异步调度器 Scheduler，保证同时运行的任务最多有两个（今日头条）</h2>
+        <button onClick={() => this.promiseMap()}>测试</button>
       </div>
     )
   }
