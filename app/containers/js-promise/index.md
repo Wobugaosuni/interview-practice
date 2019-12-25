@@ -6,7 +6,9 @@
 
 3. Promise实例具有then方法，then方法是定义在原型对象上的。它的作用是为Promise实例添加**状态改变时**的回调函数
 
-4. setTimeout 一旦定时器到期，其余参数会作为参数传递给function
+4. 可以用then方法分别指定**resolved状态**和**rejected**状态的回调函数
+
+5. setTimeout 一旦定时器到期，其余参数会作为参数传递给function
 
 ## 2. 宏任务、微任务的输出顺序
 

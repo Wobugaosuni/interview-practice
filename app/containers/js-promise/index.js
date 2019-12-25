@@ -3,7 +3,9 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import './index.styl'
 import '../../common/stylus/base.styl'
-import {createPromise, promiseByQueue, promiseByAsync} from './promise1'
+import {createPromise, promiseByReduce, promiseByAsync, promiseByShift} from './promise-queue'
+import {promiseRace} from './promise-timeout'
+import {createPromise2, promiseAll} from './promise-all'
 
 function clickTimeout() {
   function timeout(ms) {
@@ -84,7 +86,7 @@ function lastCatch() {
 
 class JsPromise extends React.Component {
   promiseQueue() {
-    promiseByQueue([
+    promiseByReduce([
       createPromise(1000, 1),
       createPromise(2000, 2),
       createPromise(3000, 3)
@@ -97,6 +99,28 @@ class JsPromise extends React.Component {
       createPromise(2000, 2),
       createPromise(3000, 3)
     ])
+  }
+
+  promiseQueueByShift() {
+    promiseByShift([
+      createPromise(1000, 1),
+      createPromise(2000, 2),
+      createPromise(3000, 3)
+    ])
+  }
+
+  promiseAllTest() {
+    promiseAll([
+      createPromise2(),
+      createPromise2(),
+      createPromise2(),
+    ])
+    .then(content => {
+      console.log('all comes:', content)
+    })
+    .catch(error => {
+      console.log('one fail:', error)
+    })
   }
 
   render() {
@@ -134,7 +158,14 @@ class JsPromise extends React.Component {
 
         <h2>6. 编程题：多个promise如何串行</h2>
         <button onClick={() => this.promiseQueue()}>使用.reduce方法</button>
-        <button onClick={() => this.promiseQueueByAsync()}>使用.async await方法</button>
+        <button onClick={() => this.promiseQueueByAsync()} className="mt12">使用.async await方法</button>
+        <button onClick={() => this.promiseQueueByShift()} className="mt12">使用shift方法，请求失败不继续</button>
+
+        <h2>7. promise.all 如何实现</h2>
+        <button onClick={() => this.promiseAllTest()}>测试</button>
+
+        <h2>8. promise里的请求超时，如何取消？(有赞)</h2>
+        <button onClick={() => promiseRace(6000)}>使用.race 方法</button>
       </div>
     )
   }
