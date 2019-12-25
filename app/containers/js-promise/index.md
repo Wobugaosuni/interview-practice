@@ -122,39 +122,12 @@ async 会返回一个 promise
 
 ## 多个请求，如何串行？使用async/await呢？(网易云音乐)
 
-可以使用reduce方法，第一个参数是上次的执行结果，第二个参数是初始值实例
-```js
-function runPromiseByQueue(myPromises) {
-  myPromises.reduce(
-    (accumulator, nextPromise) => accumulator.then(() => nextPromise()),
-    Promise.resolve()
-  );
-}
-
-const createPromise = (time, id) => () =>
-  new Promise(solve =>
-    setTimeout(() => {
-      console.log("promise", id);
-      solve();
-    }, time)
-  );
-
-runPromiseByQueue([
-  createPromise(3000, 1),
-  createPromise(2000, 2),
-  createPromise(1000, 3)
-]);
-```
+- 可以使用reduce方法，第一个参数是上次的执行结果，第二个参数是初始值实例
+可以记住上次的请求结果，供下次请求用
 利用 reduce 的函数整体是个同步函数，自己先执行完毕构造 Promise 队列，然后在内存异步执行
 
-使用async/await:
-```js
-async function runPromiseByQueue(myPromises) {
-  for (let value of myPromises) {
-    await value();
-  }
-}
-```
+- 使用async/await
+for 循坏，比较适合独立请求
 利用 async/await 的函数是利用将自己改造为一个异步函数，等待每一个 Promise 执行完毕
 
 参考：

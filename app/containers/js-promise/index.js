@@ -3,6 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import './index.styl'
 import '../../common/stylus/base.styl'
+import {createPromise, promiseByQueue, promiseByAsync} from './promise1'
 
 function clickTimeout() {
   function timeout(ms) {
@@ -82,6 +83,22 @@ function lastCatch() {
 }
 
 class JsPromise extends React.Component {
+  promiseQueue() {
+    promiseByQueue([
+      createPromise(1000, 1),
+      createPromise(2000, 2),
+      createPromise(3000, 3)
+    ])
+  }
+
+  promiseQueueByAsync() {
+    promiseByAsync([
+      createPromise(1000, 1),
+      createPromise(2000, 2),
+      createPromise(3000, 3)
+    ])
+  }
+
   render() {
     return (
       <div role="containers:Promise">
@@ -114,6 +131,10 @@ class JsPromise extends React.Component {
           {lastCatch.toString()}
         </SyntaxHighlighter>
         <button onClick={() => lastCatch()}>执行函数</button>
+
+        <h2>6. 编程题：多个promise如何串行</h2>
+        <button onClick={() => this.promiseQueue()}>使用.reduce方法</button>
+        <button onClick={() => this.promiseQueueByAsync()}>使用.async await方法</button>
       </div>
     )
   }
