@@ -1,6 +1,6 @@
 ## 使用
 
-**使用**
+1. npm start 启动
 ```bash
 ## 安装项目依赖
 npm install
@@ -10,6 +10,11 @@ npm run mock
 
 ## 启动项目，使用的是8000的端口
 npm start
+```
+
+2. storybook启动
+```bash
+npm run storybook
 ```
 
 ## storybook 文档参考

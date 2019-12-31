@@ -16,6 +16,16 @@ import SetState from '../containers/react-setState'
 import Life from '../containers/react-life'
 import lifeMd from '../containers/react-life/index.md'
 
+import Router from '../containers/react-router'
+
+storiesOf('React', module)
+  .add('Router', () => <Router />, {
+    info: {
+      text: lifeMd,
+      propTablesExclude: [Router]
+    }
+  })
+
 storiesOf('React', module)
   .add('Life', () => <Life />, {
     info: {

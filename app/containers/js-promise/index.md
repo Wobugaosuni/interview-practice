@@ -46,23 +46,6 @@ catch后面还有then的话，会继续执行
 
 使用 promise.race（**参数都是 Promise 的实例**） 和 reject 结合
 
-```js
-const request = new Promise(function(resolve){
-  setTimeout(function() { resolve('I did it'); }, 1000);
-})
-const timeout = new Promise(function(resolve, reject){
-  setTimeout(function() { reject('Timed out'); }, 800);
-})
-
-const race = Promise.race([request, timeout]);
-
-race.then(function(data){
-  console.log('request success', data);
-}).catch(function(e){
-  console.log('request timeout', e);
-});
-```
-
 #### 延伸：使用 async await语法呢？
 
 ```js
@@ -112,3 +95,10 @@ for 循坏，比较适合独立请求
 参考：
 - [精读《用 Reduce 实现 Promise 串行执行》](https://juejin.im/post/5bd65b98f265da0a91458ee6)
 - [面试官： 来说一下如何串行执行多个Promise](https://juejin.im/post/5c931bcce51d4578fa00b9b9)
+
+## 实现一个带并发限制的异步调度器 Scheduler，保证同时运行的任务最多有两个
+
+关键在于维护一个队列，当超过限定数量的 Promise 时，则交与队列维护
+
+参考：
+- [如何对 Promise 限流：实现一个 Promise.map](https://juejin.im/post/5d4a1d30f265da03f564cbf1)
