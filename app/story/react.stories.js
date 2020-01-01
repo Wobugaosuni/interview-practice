@@ -17,11 +17,12 @@ import Life from '../containers/react-life'
 import lifeMd from '../containers/react-life/index.md'
 
 import Router from '../containers/react-router'
+import routerMd from '../containers/react-router/index.md'
 
 storiesOf('React', module)
   .add('Router', () => <Router />, {
     info: {
-      text: lifeMd,
+      text: routerMd,
       propTablesExclude: [Router]
     }
   })
