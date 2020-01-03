@@ -13,11 +13,22 @@ import CommonMd from '../containers/commonJS/index.md'
 import JsWorker from '../containers/js-worker'
 import WorkerMd from '../containers/js-worker/index.md'
 
+import JsPrototype from '../containers/js-prototype'
+import PrototypeMd from '../containers/js-prototype/index.md'
+
 storiesOf('Js', module)
   .add('Promise', () => <JsPromise />, {
     info: {
       text: PromiseMd,
       propTablesExclude: [JsPromise]
+    }
+  })
+
+storiesOf('Js', module)
+  .add('Prototype', () => <JsPrototype />, {
+    info: {
+      text: PrototypeMd,
+      propTablesExclude: [JsPrototype]
     }
   })
 
