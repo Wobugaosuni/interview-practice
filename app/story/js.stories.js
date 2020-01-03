@@ -16,11 +16,14 @@ import WorkerMd from '../containers/js-worker/index.md'
 import JsPrototype from '../containers/js-prototype'
 import PrototypeMd from '../containers/js-prototype/index.md'
 
+import JsProxy from '../containers/js-proxy'
+import ProxyMd from '../containers/js-proxy/index.md'
+
 storiesOf('Js', module)
-  .add('Promise', () => <JsPromise />, {
+  .add('Proxy', () => <JsProxy />, {
     info: {
-      text: PromiseMd,
-      propTablesExclude: [JsPromise]
+      text: ProxyMd,
+      propTablesExclude: [JsProxy]
     }
   })
 
@@ -29,6 +32,14 @@ storiesOf('Js', module)
     info: {
       text: PrototypeMd,
       propTablesExclude: [JsPrototype]
+    }
+  })
+
+storiesOf('Js', module)
+  .add('Promise', () => <JsPromise />, {
+    info: {
+      text: PromiseMd,
+      propTablesExclude: [JsPromise]
     }
   })
 
