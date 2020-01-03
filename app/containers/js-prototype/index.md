@@ -30,10 +30,10 @@
 
 #### 寄生组合继承
 
-优点：解决了子类原型对象中还存在父类实例对象的属性的问题
+优点：解决了子类原型对象中存在父类实例对象的属性的问题
 
 ## 文档参考
 
-- [](https://github.com/ziyi2/js/blob/master/JS%E7%B1%BB%E5%92%8C%E7%BB%A7%E6%89%BF.md)
+- [js类和继承](https://github.com/ziyi2/js/blob/master/JS%E7%B1%BB%E5%92%8C%E7%BB%A7%E6%89%BF.md)
 
-- [](https://juejin.im/post/58f94c9bb123db411953691b#heading-4)
+- [JS原型链与继承别再被问倒了](https://juejin.im/post/58f94c9bb123db411953691b#heading-4)

@@ -1,7 +1,7 @@
-function extend(a, b) {
-  a.prototype = b.prototype
+function extend(A, B) {
+  A.prototype = B.prototype
 
-  a.prototype.constructor = a
+  A.prototype.constructor = A
 }
 
 export default function() {
