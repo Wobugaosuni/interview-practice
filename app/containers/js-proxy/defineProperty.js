@@ -1,4 +1,4 @@
-export default function() {
+function test() {
   // 这是将要被劫持的对象
   const data = {
     name: '',
@@ -29,3 +29,5 @@ export default function() {
   data.name = '渣渣辉'
   console.log('data:', data)
 }
+
+export {test}
