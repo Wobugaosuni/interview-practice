@@ -1,0 +1,36 @@
+[role="containers:Svg"]
+  // text-align center
+
+  /* y轴贯穿线样式调整 */
+  .wv-line .yaxis .tick line {
+      stroke-dasharray: 5,2;
+      stroke:#9e9c9c !important;
+      opacity: 0.5;
+  }
+  /* 隐藏0值y轴 */
+  .wv-line .yaxis .tick:nth-child(2) line{
+      display: none;
+  }
+
+  /* 文字调整 */
+  .wv-line .axis .tick text {
+      fill: #a6a6a6;
+      font-size: 10px;
+  }
+
+  .wv-line .yaxis .tick text {
+      fill: #a6a6a6;
+      font-size: 10px;
+  }
+  .wv-line .yaxis path{
+      stroke: #fff;
+      opacity: 0.5;
+  }
+  .wv-line .axis path {
+      stroke: #ccc;
+  }
+
+  .wv-line .axis .tick line{
+      stroke: #fff;
+      opacity: 0.5;
+  }
