@@ -1,49 +1,39 @@
-import React from 'react';
-import {observer} from 'mobx-react';
+import React from 'react'
+import {observer} from 'mobx-react'
 
-import './index.styl';
+import './index.styl'
 import '../../common/stylus/base.styl'
 
 @observer
 class SetState extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       val: 0,
       val2: 0,
       val3: 0,
-      count: 1
+      count: 0,
+      count2: 0,
+      count3: 0,
     }
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('shouldComponentUpdate')
-    if (this.state.count === nextState.count) {
-      return false
-    }
-    return true
-  }
-
-  componentDidUpdate() {
-    console.log('componentDidUpdate')
   }
 
   componentDidMount() {
     // 钩子事件与批量更新
     this.setState({ val: this.state.val + 1 })
-    console.log('1:', this.state.val)
+    console.log('钩子 批量更新:', this.state.val)
 
     this.setState({ val: this.state.val + 1 })
-    console.log('2:', this.state.val)
+    console.log('钩子 批量更新:', this.state.val)
 
     // setTimeout
     setTimeout(_ => {
       this.setState({ val: this.state.val + 1 })
-      console.log('3:', this.state.val)
+      console.log('定时 批量更新:', this.state.val)
 
       this.setState({ val: this.state.val + 1 })
-      console.log('4:', this.state.val)
+      console.log('定时 批量更新:', this.state.val)
     }, 0)
 
     // 原生事件
@@ -60,9 +50,25 @@ class SetState extends React.Component {
     console.log('onclick', this.state.val3) // 输出的是更新前的val --> 0
   }
 
-  render() {
-    console.log('render')
-    
+  batchUpdate() {
+    this.setState({ count: this.state.count + 1 })
+    console.log('第一次 批量更新:', this.state.count)
+
+    this.setState({ count: this.state.count + 1 })
+    console.log('第二次 批量更新:', this.state.count)
+  }
+
+  batchUpdate2() {
+    setTimeout(() => {
+      this.setState({ count2: this.state.count2 + 1 })
+      console.log('第一次 批量更新:', this.state.count2)
+
+      this.setState({ count2: this.state.count2 + 1 })
+      console.log('第二次 批量更新:', this.state.count2)
+    })
+  }
+
+  render() {    
     return (
       <div role="containers:SetState">
         <h2>SetState Demo</h2>
@@ -73,12 +79,29 @@ class SetState extends React.Component {
           {`原生事件 Counter is: ${this.state.val3}`}
         </div>
 
-        <h2>setState后调用的生命周期</h2>
-        <span>{this.state.count}</span>
-        <button onClick={() => this.setState({count: this.state.count + 1})}>调用</button>
+        <h2>批量更新</h2>
+        <div>
+          {`Counter is: ${this.state.count}`}
+        </div>
+        <button onClick={() => this.batchUpdate()}>测试</button>
+
+        <h2>批量更新+定时器</h2>
+        <div>
+          {`Counter is: ${this.state.count2}`}
+        </div>
+        <button onClick={() => this.batchUpdate2()}>测试</button>
+
+        <h2>setState传函数</h2>
+        <span>{this.state.count3}</span>
+        <button onClick={() => {
+          this.setState((state) => {
+            return {count3: state.count3 + 1}
+          })
+        }}
+        >测试</button>
       </div>
-    );
+    )
   }
 }
 
-export default SetState;
+export default SetState
