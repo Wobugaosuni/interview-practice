@@ -32,6 +32,7 @@ class Svg extends React.Component {
         <h2>数据分片渲染：canvas</h2>
         <button onClick={() => canvasTest(this.data)}>测试</button>
 
+        <div id="containerSvg"></div>
         {/* <svg id="board" preserveAspectRatio="xMidYMid meet" height="100vh" width="100vw" viewBox="0,0,2000,700">
         </svg> */}
       </div>

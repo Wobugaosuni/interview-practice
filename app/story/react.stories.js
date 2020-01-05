@@ -19,6 +19,17 @@ import lifeMd from '../containers/react-life/index.md'
 import Router from '../containers/react-router'
 import routerMd from '../containers/react-router/index.md'
 
+import Hoc from '../containers/react-hoc'
+import HocMd from '../containers/react-hoc/index.md'
+
+storiesOf('React', module)
+  .add('Hoc', () => <Hoc />, {
+    info: {
+      text: HocMd,
+      propTablesExclude: [Hoc]
+    }
+  })
+
 storiesOf('React', module)
   .add('Router', () => <Router />, {
     info: {

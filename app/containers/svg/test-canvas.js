@@ -15,7 +15,7 @@ export default function(allData) {
   const renderWidth = width - margin.left - margin.right
   const renderHeight = height - margin.top - margin.bottom
 
-  const canvas = d3.select('body')
+  const canvas = d3.select('#containerSvg')
         .append('canvas')
         .attr('width', width)
         .attr('height', height)

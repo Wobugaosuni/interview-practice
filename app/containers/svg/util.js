@@ -76,7 +76,7 @@ export function getContainer() {
   d3.select('svg').remove()
   d3.select('canvas').remove()
 
-  const board = d3.select('body')
+  const board = d3.select('#containerSvg')
     .append('svg')
     .attr('id', 'board')
     .attr('width', '100vw')
