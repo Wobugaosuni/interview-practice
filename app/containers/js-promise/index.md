@@ -10,7 +10,7 @@
 
 5. setTimeout 一旦定时器到期，其余参数会作为参数传递给function
 
-## 2. 宏任务、微任务的输出顺序
+## 2.1 宏任务、微任务的输出顺序
 
 >输出: 1 3 6 5 2 4
 
@@ -21,6 +21,8 @@
 3. `Promise.resolve()`是同步的，按顺序执行
 
 4. `Promise.resolve().then(() => {})`相当于`new Promise(resolve => resolve()).then()`
+
+## 2.2 微任务比较
 
 ## 3. 抛出错误的姿势
 

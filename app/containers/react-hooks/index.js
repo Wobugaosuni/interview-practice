@@ -6,6 +6,7 @@ import DidMount from './didMount'
 import Clear from './clear'
 import UseMemo from './useMemo'
 import Update from './class-father'
+import UseReducer from './useReducer'
 
 function Hooks() {
   const [showTimer, setTimer] = useState(false)
@@ -16,6 +17,7 @@ function Hooks() {
     setA('black')
     // setB('blue')
   }
+  console.log('a:', a)
 
   return (
     <div role="containers:Hooks">
@@ -46,6 +48,9 @@ function Hooks() {
       <button onClick={() => changeColor()} className="mt40">
         改颜色
       </button>
+
+      <h2>UseReducer 用法</h2>
+      <UseReducer />
     </div>
   )
 }

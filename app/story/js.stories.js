@@ -19,6 +19,17 @@ import PrototypeMd from '../containers/js-prototype/index.md'
 import JsProxy from '../containers/js-proxy'
 import ProxyMd from '../containers/js-proxy/index.md'
 
+import JsAsync from '../containers/js-async'
+import AsyncMd from '../containers/js-async/index.md'
+
+storiesOf('Js', module)
+  .add('Async...await', () => <JsAsync />, {
+    info: {
+      text: AsyncMd,
+      propTablesExclude: [JsAsync]
+    }
+  })
+
 storiesOf('Js', module)
   .add('Proxy', () => <JsProxy />, {
     info: {

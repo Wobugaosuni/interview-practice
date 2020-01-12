@@ -38,6 +38,34 @@ function taskOrder() {
   console.log(6)
 }
 
+function taskOrder2() {
+  console.log('1')
+  async function async1() {
+      console.log('2')
+      await async2()
+      console.log('3')
+  }
+  async function async2() {
+      console.log('4')
+  }
+
+  async1()
+
+  new Promise(function(resolve) {
+      console.log('5')
+      resolve()
+  }).then(function() {
+      console.log('6')
+  })
+  console.log('7')
+
+  // 猜测输出顺序
+  // 同步任务：1 5 7
+  // 微任务：2 4 3 6
+
+  // 实际执行顺序：1 2 4 5 7 3 6
+}
+
 function howError() {
   Promise.resolve()
     .then(() => {
@@ -84,6 +112,20 @@ function lastCatch() {
     .catch((err) => {
       console.log('catch: ', err)
     })
+}
+
+function thenThen () {
+  const p0 = new Promise((resolve) => {
+    resolve()
+  }).then(() => console.log(0))
+  .then(() => console.log(1))
+
+  const p1 = new Promise((resolve) => {
+    resolve()
+  }).then(() => console.log(2))
+  .then(() => console.log(3))
+
+  p0.then(() => console.log(5))
 }
 
 class JsPromise extends React.Component {
@@ -153,11 +195,17 @@ class JsPromise extends React.Component {
         </SyntaxHighlighter>
         <button onClick={() => clickTimeout()}>执行函数</button>
 
-        <h2>2. 宏任务、微任务的输出顺序</h2>
+        <h2>2.1 宏任务、微任务的输出顺序</h2>
         <SyntaxHighlighter language="javascript">
           {taskOrder.toString()}
         </SyntaxHighlighter>
         <button onClick={() => taskOrder()}>执行函数</button>
+
+        <h2>2.2 微任务的输出顺序</h2>
+        <button onClick={() => taskOrder2()}>执行函数</button>
+
+        <h2>2.3 多个then的执行顺序</h2>
+        <button onClick={() => thenThen()}>执行函数</button>
 
         <h2>3. 抛出错误的姿势</h2>
         <SyntaxHighlighter language="javascript">
