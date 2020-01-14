@@ -16,6 +16,10 @@ class JsString extends React.Component {
         <h2>无重复字符的最长子串</h2>
         <img width="500" src={png1} />
         <div>字符串：{str}</div>
+        <button onClick={() => lengthOfLongestSubstring(str)}>测试</button>
+
+        <h2>延伸：无重复字符的子串组合</h2>
+        <div>字符串：{str}</div>
         <button onClick={() => childsOfLongestSubstring(str)}>测试</button>
       </div>
     )
