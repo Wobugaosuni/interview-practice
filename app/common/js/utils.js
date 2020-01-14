@@ -1,6 +1,6 @@
 // 模仿异步请求，成功
-export const myAjax = () => {
-  const requestTime = Math.round(Math.random() * 10000)
+export const myAjax = (time) => {
+  const requestTime = time || Math.round(Math.random() * 10000)
   console.log('请求中。。。')
 
   return new Promise((resolve, reject) => {

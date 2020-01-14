@@ -6,6 +6,7 @@ import '../../common/stylus/base.styl'
 import {createPromise, promiseByReduce, promiseByAsync, promiseByShift} from './promise-queue'
 import {promiseRace} from './promise-timeout'
 import {createPromise2, promiseAll} from './promise-all'
+import {myAjax} from '../../common/js/utils'
 
 import './promise-map'
 
@@ -155,9 +156,9 @@ class JsPromise extends React.Component {
 
   promiseAllTest() {
     promiseAll([
-      createPromise2(),
-      createPromise2(),
-      createPromise2(),
+      myAjax(2000),
+      myAjax(1000),
+      myAjax(3000),
     ])
     .then(content => {
       console.log('all comes:', content)

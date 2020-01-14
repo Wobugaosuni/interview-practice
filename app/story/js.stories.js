@@ -22,6 +22,8 @@ import ProxyMd from '../containers/js-proxy/index.md'
 import JsAsync from '../containers/js-async'
 import AsyncMd from '../containers/js-async/index.md'
 
+import JsString from '../containers/js-string'
+
 storiesOf('Js', module)
   .add('Async...await', () => <JsAsync />, {
     info: {
@@ -59,6 +61,14 @@ storiesOf('Js', module)
     info: {
       text: ArrayMd,
       propTablesExclude: [JsArray]
+    }
+  })
+
+storiesOf('Js', module)
+  .add('字符串相关', () => <JsString />, {
+    info: {
+      text: '',
+      propTablesExclude: [JsString]
     }
   })
 

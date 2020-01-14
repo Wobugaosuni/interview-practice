@@ -23,10 +23,12 @@ const promiseAll = promises => {
   let res = []
 
   return new Promise((resolve, reject) => {
-    promises.forEach(item => {
+    promises.forEach((item, index) => {
       Promise.resolve(item)
         .then((result) => {
-          res.push(result)
+          // push的话不能保证顺序！
+          // res.push(result)
+          res[index] = result
 
           // 最后遍历完了，把数组传下去
           if (res.length === promises.length) {
