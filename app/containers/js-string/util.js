@@ -56,3 +56,26 @@ export const childsOfLongestSubstring = function(s) {
   return resultArr
 
 }
+
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+export const longestCommonPrefix = function(strs) {
+    if (!strs.length) return ''
+    let res = ''
+
+    for (let i = 0; i < strs[0].length; i++) {
+        // 逐位比较
+        for (let j = 1; j < strs.length; j++) {
+            if (strs[j][i] !== strs[0][i]) {
+                console.log('不重复了，退出')
+                return res
+            } 
+        }
+        console.log(strs[0][i])
+        res += strs[0][i]
+    }
+
+    return res
+};
