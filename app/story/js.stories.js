@@ -24,6 +24,28 @@ import AsyncMd from '../containers/js-async/index.md'
 
 import JsString from '../containers/js-string'
 
+import JsClosure from '../containers/js-closure'
+import ClosureMd from '../containers/js-closure/index.md'
+
+import JsTree from '../containers/js-tree'
+
+storiesOf('Js', module)
+  .add('闭包', () => <JsClosure />, {
+    info: {
+      inline: true,
+      text: ClosureMd,
+      propTablesExclude: [JsClosure]
+    }
+  })
+
+storiesOf('Js', module)
+  .add('树结构', () => <JsTree />, {
+    info: {
+      text: '',
+      propTablesExclude: [JsTree]
+    }
+  })
+
 storiesOf('Js', module)
   .add('Async...await', () => <JsAsync />, {
     info: {

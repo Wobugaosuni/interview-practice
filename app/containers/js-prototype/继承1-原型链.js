@@ -1,11 +1,22 @@
 export default function() {
   function Father() {
     this.names = ['jack', 'rose']
+
+    getName = function() {
+      console.log(1)
+    }
+  }
+
+  function getName (){
+    console.log(5)
   }
 
   Father.prototype.getName = function() {
     return this.names
   }
+
+  console.log(new Father().getName())
+  debugger
 
   function Son() {}
   // 继承 Father 的属性和方法

@@ -33,6 +33,49 @@ function setArray(arr) {
   console.log('去重后数组：', newArr)
 }
 
+function shallowCopy() {
+  const arr = [{a:1}, 3]
+
+  const data = arr.slice(0)
+  data[0].a = 2
+
+  console.log('原数组也改变了：', arr)
+
+  return data
+}
+function shallowCopy2() {
+  const arr = [{a:1}, 3]
+
+  const data = [].concat(arr)
+  data[0].a = 2
+
+  console.log('原数组也改变了：', arr)
+
+  return data
+}
+function shallowCopy3() {
+  const arr = [{a:1}, 3]
+
+  const data = [...arr]
+  data[0].a = 2
+
+  console.log('原数组也改变了：', arr)
+
+  return data
+}
+
+function deepCopy() {
+  const arr = [{a:1}, 3]
+
+  const data = JSON.parse(JSON.stringify(arr))
+  data[0].a = 2
+
+  console.log('原数组没改变：', arr)
+  console.log('拷贝数组改变：', data)
+
+  return data
+}
+
 class JsArray extends React.Component {
   givenArr = [[1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14]]]], 10]
 
@@ -64,6 +107,14 @@ class JsArray extends React.Component {
           <div>在扁平化的基础上，可以直接去重</div>
           <button onClick={() => setArray(this.givenArr)}>去重</button>
         </div>
+
+        <h2>3. 浅拷贝数组的方法：slice，concat，...</h2>
+        <button onClick={shallowCopy}>测试slice</button>
+        <button onClick={shallowCopy2}>测试concat</button>
+        <button onClick={shallowCopy3}>测试...</button>
+
+        <h2>4. 深拷贝数组</h2>
+        <button onClick={deepCopy}>测试</button>
       </div>
     )
   }
