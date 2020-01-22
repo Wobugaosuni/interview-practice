@@ -2,79 +2,10 @@ import React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import './index.styl'
+import {twoSum, twoSum2} from './util2'
+import {flattenArr, flattenArr2, flattenArrAssignLevel, setArray, shallowCopy, shallowCopy2, shallowCopy3, deepCopy} from './util'
+import png1 from './1.png'
 
-function flattenArr(arr) {
-  return arr.reduce((accu, current) => {
-    return accu.concat(Array.isArray(current) ? flattenArr(current) : current)
-  }, [])
-}
-
-function flattenArr2(arr) {
-  // 如果子元素还是数组，继续循环
-  while (arr.some(item => Array.isArray(item))) {
-    arr = [].concat(...arr)
-  }
-
-  console.log(arr)
-  return arr
-}
-
-function flattenArrAssignLevel(arr, level) {
-  const newArr = arr.flat(level)
-
-  console.log('flattenArrAssignLevel:', newArr)
-}
-
-function setArray(arr) {
-  const flatArr = flattenArr2(arr)
-
-  const newArr = [...new Set(flatArr)]
-
-  console.log('去重后数组：', newArr)
-}
-
-function shallowCopy() {
-  const arr = [{a:1}, 3]
-
-  const data = arr.slice(0)
-  data[0].a = 2
-
-  console.log('原数组也改变了：', arr)
-
-  return data
-}
-function shallowCopy2() {
-  const arr = [{a:1}, 3]
-
-  const data = [].concat(arr)
-  data[0].a = 2
-
-  console.log('原数组也改变了：', arr)
-
-  return data
-}
-function shallowCopy3() {
-  const arr = [{a:1}, 3]
-
-  const data = [...arr]
-  data[0].a = 2
-
-  console.log('原数组也改变了：', arr)
-
-  return data
-}
-
-function deepCopy() {
-  const arr = [{a:1}, 3]
-
-  const data = JSON.parse(JSON.stringify(arr))
-  data[0].a = 2
-
-  console.log('原数组没改变：', arr)
-  console.log('拷贝数组改变：', data)
-
-  return data
-}
 
 class JsArray extends React.Component {
   givenArr = [[1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14]]]], 10]
@@ -115,6 +46,11 @@ class JsArray extends React.Component {
 
         <h2>4. 深拷贝数组</h2>
         <button onClick={deepCopy}>测试</button>
+
+        <h2>5. 两数之和</h2>
+        <img width="600" src={png1} />
+        <button onClick={() => twoSum([1,2,3,4,5,6], 7)}>测试</button>
+        <button onClick={() => twoSum2([1,2,3,4,5,6], 7)}>使用哈希表，测试</button>
       </div>
     )
   }
