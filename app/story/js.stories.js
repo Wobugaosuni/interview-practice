@@ -29,6 +29,9 @@ import ClosureMd from '../containers/js-closure/index.md'
 
 import JsTree from '../containers/js-tree'
 
+import JsPath from '../containers/js-path'
+import PathMd from '../containers/js-path/index.md'
+
 storiesOf('Js', module)
   .add('闭包', () => <JsClosure />, {
     info: {
@@ -43,6 +46,14 @@ storiesOf('Js', module)
     info: {
       text: '',
       propTablesExclude: [JsTree]
+    }
+  })
+
+storiesOf('Js', module)
+  .add('路径', () => <JsPath />, {
+    info: {
+      text: PathMd,
+      propTablesExclude: [JsPath]
     }
   })
 
