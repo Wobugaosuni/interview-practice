@@ -32,12 +32,22 @@ import JsTree from '../containers/js-tree'
 import JsPath from '../containers/js-path'
 import PathMd from '../containers/js-path/index.md'
 
+import JsOther from '../containers/js-other'
+
 storiesOf('Js', module)
   .add('闭包', () => <JsClosure />, {
     info: {
       inline: true,
       text: ClosureMd,
       propTablesExclude: [JsClosure]
+    }
+  })
+
+storiesOf('Js', module)
+  .add('其他', () => <JsOther />, {
+    info: {
+      text: '',
+      propTablesExclude: [JsOther]
     }
   })
 
