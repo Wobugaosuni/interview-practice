@@ -33,6 +33,7 @@ import JsPath from '../containers/js-path'
 import PathMd from '../containers/js-path/index.md'
 
 import JsOther from '../containers/js-other'
+import OtherMd from '../containers/js-other/index.md'
 
 storiesOf('Js', module)
   .add('闭包', () => <JsClosure />, {
@@ -46,7 +47,7 @@ storiesOf('Js', module)
 storiesOf('Js', module)
   .add('其他', () => <JsOther />, {
     info: {
-      text: '',
+      text: OtherMd,
       propTablesExclude: [JsOther]
     }
   })
