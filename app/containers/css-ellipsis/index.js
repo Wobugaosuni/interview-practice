@@ -9,6 +9,7 @@ import MultipleLineEllipsis from '../../components/multiple-line-ellipsis'
 import MultipleLineEllipsisBili from '../../components/multiple-line-ellipsis-bili'
 
 const text = '【网络】23集全 之前收藏的23集全集挂了，联系up未果，决定自己补上。课程介绍：我们来到这个世上，到底追求什么才是最重要的？他坚定地认为：幸福感是衡量人生的唯一标准，是所有目标的最终目标。塔尔博士被誉为"最受欢迎讲师"和"人生导师"。讲师：TalBen Shahar，心理学讲师，心理学硕士、哲学组织和行为学博士。'
+const shortText = '【网络】23集全 之前收藏的23集全集挂了，联系up未果，决定自己补上。课程介绍：我们来到这个世上，到底追求什么才是最重要的？他坚定地认为：幸福感是衡量人生的唯一标准，是所有目标的最终目标。塔尔博士被誉为"最受欢迎讲师"和"人生导师"。'
 
 class CssEllipsis extends React.Component {
   render() {
@@ -20,12 +21,12 @@ class CssEllipsis extends React.Component {
         <h2>1. CSS多行省略：webkit-box</h2>
         <div className="same-content multi-line">{text}</div>
 
-        <h2>2. 我做的多行省略，固定高度</h2>
+        <h2>2. 我做的多行省略，固定高度，支持resize</h2>
         <div className="my-line pink-bg">
           <MultipleLineEllipsis text="少字测试" />
         </div>
         <div className="same-content my-line">
-          <MultipleLineEllipsis line="2" text={text} bgColor="purple" />
+          <MultipleLineEllipsis line="2" text={shortText} bgColor="purple" />
         </div>
 
         <h2>3. 哔哩哔哩方案，字数不足自适应高度，字数超出省略隐藏</h2>
@@ -35,7 +36,7 @@ class CssEllipsis extends React.Component {
           <MultipleLineEllipsisBili text="少字测试" />
         </div>
         <div className="same-content">
-          <MultipleLineEllipsisBili text={text} />
+          <MultipleLineEllipsisBili text={shortText} />
         </div>
       </div>
     )

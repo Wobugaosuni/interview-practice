@@ -1,6 +1,8 @@
 import {STYLE} from '../static'
 
-// 模仿异步请求，成功
+/**
+ * 模仿异步请求，成功
+*/
 export const myAjax = (time) => {
   const requestTime = time || Math.round(Math.random() * 10000)
   console.log('请求中。。。')
@@ -12,7 +14,9 @@ export const myAjax = (time) => {
   })
 }
 
-// 模仿异步请求，随机成功失败
+/**
+ * 模仿异步请求，随机成功失败
+ */
 export const myAjaxRandom = () => {
   const requestTime = Math.round(Math.random() * 10000)
   // console.log('requestTime:', requestTime)
@@ -29,7 +33,9 @@ export const myAjaxRandom = () => {
   })
 }
 
-// 利用 canvas 计算文本的宽度
+/**
+ * 利用 canvas 计算文本的宽度
+ */
 const ctx = document.createElement('canvas').getContext('2d')
 
 // 获取文字的宽度
@@ -39,4 +45,21 @@ export const getTextWidth = function(text, fontSize) {
   // console.log('mT:', mT)
 
   return mT.width
+}
+
+/**
+ * 节流
+ */
+export const throttle = function(callback, delay) {
+  let last = Date.now()
+
+  return function() {
+    let now = Date.now()
+    if (now - last > delay) {
+      // 执行
+      callback()
+
+      last = Date.now()
+    }
+  }
 }
