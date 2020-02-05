@@ -21,7 +21,12 @@
 ## 多行省略的js实现
 
 1. 通过 `scrollHight` 和 `clientHeight` 判断内容是否超出
-2. 超出的话，隐藏超出内容，末尾加 css渐变过渡
+```js
+if (scrollHeight > clientHeight) {
+  // 内容超出
+}
+```
+2. 超出的话，末尾添加伪元素，隐藏超出内容，末尾加 css渐变过渡
 ```css
 .line-ellipsis::after
   width 80px
@@ -42,3 +47,7 @@ if (isBeyond && !isOpen) {
 ```
 
 缺点：当背景是一张图片时，就比较难搞了！
+
+## 哔哩哔哩的超出方案（2020.2.2截的图）
+
+通过动态class进行控制

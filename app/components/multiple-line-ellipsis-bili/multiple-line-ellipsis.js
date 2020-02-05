@@ -1,8 +1,10 @@
 import React from 'react'
 
-export default class MultipleLineEllipsis extends React.Component {
+export default class MultipleLineEllipsisBili extends React.Component {
   constructor(props) {
     super(props)
+
+    this.biliRef = React.createRef()
 
     this.state = {
       // 是否超出
@@ -13,10 +15,10 @@ export default class MultipleLineEllipsis extends React.Component {
   }
 
   // 判断内容是否超出
-  isTextBeyond(text, line) {
+  isTextBeyond(text) {
     const tempDom = document.createElement('div')
     tempDom.innerHTML = text
-    tempDom.style = `height: ${1.5 * line}em; overflow: hidden`
+    tempDom.style = 'height: 60px; overflow: hidden; line-height: 24px'
 
     // 插入元素测量
     document.body.appendChild(tempDom)
@@ -36,43 +38,36 @@ export default class MultipleLineEllipsis extends React.Component {
   }
 
   componentDidMount() {
-    const {text, line} = this.props
-
-    const isBeyond = this.isTextBeyond(text, line || 2)
+    const {text} = this.props
+    const isBeyond = this.isTextBeyond(text)
 
     // 内容超出，增加 ...
     if (isBeyond) {
       this.setState({
         isBeyond: true
       })
-      // multipleLine.classList.add('line-ellipsis')
     }
   }
 
   render() {
-    const {line, className, bgColor} = this.props
+    const {text} = this.props
     const {isBeyond, isOpen} = this.state
-
-    // 动态添加遮罩层
-    if (isBeyond && !isOpen) {
-      document.styleSheets[0].insertRule(`.multiple-line-ellipsis::after{background: linear-gradient(to right, transparent, ${bgColor})}`,0) //chrome,firefox等非IE浏览器使用
-      // document.styleSheets[0].addRule('...',0) //IE系列浏览器使用
-    }
 
     return (
       <React.Fragment>
         <div
-          ref="multipleLine"
-          className={`multiple-line-ellipsis ${isBeyond && !isOpen ? 'line-ellipsis' : ''} ${className}`}
+          ref={this.biliRef}
           style={{
-            height: isOpen ? 'auto' : `${1.5 * (line || 2)}em` // 默认两行
+            height: !isBeyond || isOpen ? 'auto' : '60px',
+            lineHeight: '24px',
+            overflow: 'hidden'
           }}
         >
-          {this.props.text}
+          {text}
         </div>
         {
           isBeyond ? (
-            <button onClick={() => this.setState({isOpen: !isOpen})}>
+            <button onClick={() => this.setState({isOpen: !isOpen})} className="mt12">
               {
                 isOpen ? '缩起' : '展开'
               }
