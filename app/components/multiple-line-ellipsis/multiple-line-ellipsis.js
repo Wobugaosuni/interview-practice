@@ -11,41 +11,17 @@ export default class MultipleLineEllipsis extends React.Component {
       isOpen: false
     }
   }
-
-  // 判断内容是否超出
-  isTextBeyond(text, line) {
-    const tempDom = document.createElement('div')
-    tempDom.innerHTML = text
-    tempDom.style = `height: ${1.5 * line}em; overflow: hidden`
-
-    // 插入元素测量
-    document.body.appendChild(tempDom)
-
-    const clientHeight = tempDom.clientHeight
-    const scrollHeight = tempDom.scrollHeight
-
-    // 移除元素
-    document.body.removeChild(tempDom)
-
-    // 内容超出
-    if (scrollHeight > clientHeight) {
-      return true
-    }
-
-    return false
-  }
-
+  
   componentDidMount() {
-    const {text, line} = this.props
-
-    const isBeyond = this.isTextBeyond(text, line || 2)
+    const multipleLine = this.refs.multipleLine
+    const clientHeight = multipleLine.clientHeight
+    const scrollHeight = multipleLine.scrollHeight
 
     // 内容超出，增加 ...
-    if (isBeyond) {
+    if (scrollHeight > clientHeight) {
       this.setState({
         isBeyond: true
       })
-      // multipleLine.classList.add('line-ellipsis')
     }
   }
 
