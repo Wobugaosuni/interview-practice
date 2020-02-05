@@ -1,3 +1,5 @@
+import {STYLE} from '../static'
+
 // 模仿异步请求，成功
 export const myAjax = (time) => {
   const requestTime = time || Math.round(Math.random() * 10000)
@@ -25,4 +27,16 @@ export const myAjaxRandom = () => {
       }
     }, requestTime)
   })
+}
+
+// 利用 canvas 计算文本的宽度
+const ctx = document.createElement('canvas').getContext('2d')
+
+// 获取文字的宽度
+export const getTextWidth = function(text, fontSize) {
+  const mT = ctx.measureText(text)
+  // mT.font = '22px ' + STYLE.FONT_FAMILY
+  // console.log('mT:', mT)
+
+  return mT.width
 }
