@@ -3,7 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import './index.styl'
 import {twoSum, twoSum2} from './util2'
-import {flattenArr, flattenArr2, flattenArrAssignLevel, setArray, shallowCopy, shallowCopy2, shallowCopy3, deepCopy} from './util'
+import {flattenArr, flattenArr2, flattenArr3, flattenArrAssignLevel, setArray, shallowCopy, shallowCopy2, shallowCopy3, deepCopy} from './util'
 import png1 from './1.png'
 
 
@@ -22,9 +22,15 @@ class JsArray extends React.Component {
         </li>
 
         <li>
-          <span>或者使用扩展运算符 + Array.some</span>
+          <span>使用扩展运算符 + Array.some</span>
           {/* <SyntaxHighlighter>{flattenArr2.toString()}</SyntaxHighlighter> */}
           <button onClick={() => flattenArr2(this.givenArr)}>完全扁平化</button>
+        </li>
+
+        <li>
+          <span>使用 Array.flat</span>
+          {/* <SyntaxHighlighter>{flattenArr2.toString()}</SyntaxHighlighter> */}
+          <button onClick={() => flattenArr3(this.givenArr)}>完全扁平化</button>
         </li>
         
         <li>

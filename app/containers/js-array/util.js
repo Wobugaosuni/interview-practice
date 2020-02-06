@@ -14,6 +14,13 @@ export function flattenArr2(arr) {
   return arr
 }
 
+export function flattenArr3(arr) {
+  const result = arr.flat(Infinity)
+  console.log('result:', result)
+
+  return result
+}
+
 export function flattenArrAssignLevel(arr, level) {
   const newArr = arr.flat(level)
 
