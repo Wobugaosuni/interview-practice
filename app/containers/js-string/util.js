@@ -78,4 +78,58 @@ export const longestCommonPrefix = function(strs) {
     }
 
     return res
-};
+}
+
+/**
+ * @param {string} s
+ * @return {string[]}
+ */
+export const restoreIpAddresses = function (s) {
+  // 边缘情况判断
+  if (s.length > 12) return []
+
+  let result = []
+
+  fn(s, [], result)
+
+  console.log('result:', result)
+  
+  return result
+}
+
+// 递归体
+const fn = function (s, temp, result) {
+  if (temp.length === 3) {
+    // 最后一位了，补上
+    if (regular(s)) {
+      temp.push(s)
+      const str = temp.join('.')
+      result.push(str)
+    }
+    // 退出执行下面的
+    return
+  }
+
+  // 每个长度可以是1、2、3
+  for (let i = 1; i < 4; i++) {
+    const str = s.slice(0, i)
+    const lastStr = s.slice(i)
+
+    if (regular(str)) {
+      fn(lastStr, [...temp, str], result)
+    }
+  }
+}
+
+/**
+ * 判断单个长度的字符串是否符合要求
+ * >= 0
+ * <= 255
+ * 长度为1，可以是0
+ * 长度大于1，不可以0开头
+ */
+const regular = function (s) {
+  if (!s.length) return false
+
+  return +s >= 0 && +s <= 255 && (s.length > 1 ? +s[0] : true)
+}

@@ -23,6 +23,7 @@ import JsAsync from '../containers/js-async'
 import AsyncMd from '../containers/js-async/index.md'
 
 import JsString from '../containers/js-string'
+import StringMd from '../containers/js-string/index.md'
 
 import JsClosure from '../containers/js-closure'
 import ClosureMd from '../containers/js-closure/index.md'
@@ -111,7 +112,7 @@ storiesOf('Js', module)
 storiesOf('Js', module)
   .add('字符串相关', () => <JsString />, {
     info: {
-      text: '',
+      text: StringMd,
       propTablesExclude: [JsString]
     }
   })

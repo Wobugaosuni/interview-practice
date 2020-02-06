@@ -6,7 +6,7 @@ import '../../common/stylus/base.styl'
 import png1 from './1.png'
 import png2 from './2.png'
 
-import {lengthOfLongestSubstring, childsOfLongestSubstring, longestCommonPrefix} from './util'
+import {lengthOfLongestSubstring, childsOfLongestSubstring, longestCommonPrefix, restoreIpAddresses} from './util'
 
 const str = 'asdfgihgjklmnb'
 
@@ -26,6 +26,15 @@ class JsString extends React.Component {
         <h2>2. 最长公共前缀</h2>
         <img width="300" src={png2} />
         <button onClick={() => longestCommonPrefix(["flower","flow","flight"])}>测试</button>
+
+        <h2>3. 复原IP地址</h2>
+        <div>给定一个只包含数字的字符串，复原它并返回所有可能的 IP 地址格式。</div>
+        <div>
+          输入: "25525511135"
+          输出: ["255.255.11.135", "255.255.111.35"]
+        </div>
+        <button onClick={() => restoreIpAddresses("25525511135")}>"25525511135" 测试</button>
+        <button onClick={() => restoreIpAddresses("0000")}>"0000" 测试</button>
       </div>
     )
   }
