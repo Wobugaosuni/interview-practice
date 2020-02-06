@@ -21,7 +21,10 @@ class CssEllipsis extends React.Component {
         <h2>1. CSS多行省略：webkit-box</h2>
         <div className="same-content multi-line">{text}</div>
 
-        <h2>2. 我做的多行省略，固定高度，支持resize</h2>
+        <h2>2, CSS多行省略：absolute，自适应高度</h2>
+        <div className="same-content css-ellipsis">{text}</div>
+
+        <h2>3. js：我做的多行省略，固定高度，支持resize</h2>
         <div className="my-line pink-bg">
           <MultipleLineEllipsis text="少字测试" />
         </div>
@@ -29,7 +32,7 @@ class CssEllipsis extends React.Component {
           <MultipleLineEllipsis line="2" text={shortText} bgColor="purple" />
         </div>
 
-        <h2>3. 哔哩哔哩方案，字数不足自适应高度，字数超出省略隐藏</h2>
+        <h2>4. 哔哩哔哩方案，字数不足自适应高度，字数超出省略隐藏</h2>
         <img width="600" src={png1} />
         <img width="600" src={png2} />
         <div className="pink-bg">

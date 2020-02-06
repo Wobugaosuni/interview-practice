@@ -7,7 +7,7 @@
   text-overflow ellipsis // 末尾加省略号
   ```
 
-## 多行省略css实现
+## 多行省略css实现：webkit
 
 -webkit-line-clamp，不兼容IE。PC端一般不用此方法
 
@@ -17,6 +17,13 @@
   -webkit-line-clamp 2
   overflow hidden
   ```
+
+## 多行省略css实现：伪元素
+
+1. 用 `line-height` 和 `max-height` 实现高度自适应
+2. 利用 `::before` 添加省略号
+3. 当内容不足时，用 `::after` 遮挡省略号。**内容超出时，跟着文本内容的实际高度移动**  
+用于挡住省略号的方块也是绝对定位，靠右定位，`right: 0`，但是`bottom`值就不要设置了，如果不设置的话，该方块会跟着文本内容的实际高度移动，而不是`max-height`的高度。这样的话，当不需要省略时（即不超过`max-height`）时，就刚好是`bottom: 0`的情况，就会挡住省略号。当要进行省略时（即超过`max-height`）就会挡不住省略号了，它自己也会被`overflow: hidden`给隐藏掉了
 
 ## 高度固定，多行省略的js实现
 
@@ -49,3 +56,7 @@ if (isBeyond && !isOpen) {
 缺点：当背景是一张图片时，就比较难搞了！
 
 ## 哔哩哔哩的超出方案（2020.2.2截的图）
+
+## 文档参考
+
+- [css高级应用三种方法实现多行省略](https://juejin.im/post/5caeef8be51d456e3b70185d)

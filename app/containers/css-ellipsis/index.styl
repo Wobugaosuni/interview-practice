@@ -19,6 +19,33 @@
     -webkit-box-orient vertical
     overflow hidden
 
+  .css-ellipsis
+    position relative
+    line-height 1.5em
+    max-height 3em
+    overflow hidden
+    // 撑满一行空间
+    text-align justify
+    // 此值写死成1em就好，因为省略号大概就是占用1em的空间
+    padding-right 1em
+
+    &::before
+      position absolute 
+      right 0
+      bottom 0
+      content '...'
+
+    &::after
+      position absolute 
+      right 0
+      content ''
+      // 与省略号宽保持一致
+      width 1em
+      // 与行高保持一致
+      height 1.5em
+      // 与背景色保持一致
+      background-color purple
+
   .my-line
     height auto
 
