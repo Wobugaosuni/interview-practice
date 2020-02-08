@@ -41,3 +41,5 @@
     return 0 <= +s && +s <= 255 && (s.length > 1 ? !!+s[0] : true)
   }
   ```
+
+参考：https://leetcode-cn.com/problems/restore-ip-addresses/

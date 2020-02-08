@@ -36,6 +36,9 @@ import PathMd from '../containers/js-path/index.md'
 import JsOther from '../containers/js-other'
 import OtherMd from '../containers/js-other/index.md'
 
+import JsObject from '../containers/js-object'
+import JsObjectMd from '../containers/js-object/index.md'
+
 storiesOf('Js', module)
   .add('闭包', () => <JsClosure />, {
     info: {
@@ -98,6 +101,14 @@ storiesOf('Js', module)
     info: {
       text: PromiseMd,
       propTablesExclude: [JsPromise]
+    }
+  })
+
+storiesOf('Js', module)
+  .add('对象相关', () => <JsObject />, {
+    info: {
+      text: JsObjectMd,
+      propTablesExclude: [JsObject]
     }
   })
 
