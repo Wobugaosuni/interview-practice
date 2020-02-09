@@ -5,43 +5,64 @@ import './index.styl'
 import '../../common/stylus/base.styl'
 
 const data2 = [
-  {id:1, name:'部门A'},
-  {id:2, name:'部门B'},
-  {id:3, name:'部门C', parentId:1},
   {id:4, name:'部门D', parentId:1},
   {id:5, name:'部门E', parentId:2},
   {id:6, name:'部门F', parentId:3},
+  {id:3, name:'部门C', parentId:1},
   {id:7, name:'部门G', parentId:2},
-  {id:8, name:'部门H', parentId:4}
+  {id:8, name:'部门H', parentId:4},
+  {id:1, name:'部门A'},
+  {id:2, name:'部门B'},
+]
+
+const data3 = [
+  {
+    "id": "lily",
+    "age": 88
+  },
+  {
+    "id": "jack",
+    "age": 60,
+    "parentId": "lily"
+  },
+  {
+    "id": "rose",
+    "age": 40,
+    "parentId": "jack"
+  },
+  {
+    "id": "pin",
+    "age": 70,
+    "parentId": "lily"
+  }
 ]
 
 function toTree(arr) {
   // 深拷贝一个数组，避免干扰
   const data = JSON.parse(JSON.stringify(arr))
 
-  // 筛选出父节点
-  const tree = data.filter(item => !item.parentId)
-
   // 保存键值对
   const obj = {}
+  data.forEach(item => obj[item.id] = item)
 
+  const res = []
   data.forEach(item => {
-    if (item.parentId) {
-      // 判断是有存在键值对
-      if (!obj[item.parentId]) {
-        obj[item.parentId] = []
+    if (!item.parentId) {
+      // 是父节点了
+      res.push(item)
+    } else {
+      // 有父节点
+      if (item.parentId in obj) {
+        const parent = obj[item.parentId]
+        parent.children = parent.children || []
+        parent.children.push(item)
+        delete item.parentId
       }
-      // 推进数组
-      obj[item.parentId].push(item)
-      // 删除属性
-      delete item.parentId
     }
   })
 
-  tree.forEach(item => item.children = obj[item.id])
-  
-  console.log('get tree:', tree)
-  return tree
+  console.log('tree:', res)
+  return res
 }
 
 function toFlat(data, parentId) {

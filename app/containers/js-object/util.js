@@ -58,7 +58,8 @@ export const findAge = function (obj, name) {
       if (item.child) add(item.child, item.name)
     })
   }
-  // console.log('arr:', arr)
+  console.log('arr:', JSON.stringify(arr, null, 2))
+  console.log('tree:', convert(arr))
 
   const result = arr.find(item => item.name === name)
   if (result) {
@@ -66,4 +67,55 @@ export const findAge = function (obj, name) {
   } else {
     return '查无此人'
   }
+}
+
+function tree(arr) {
+  // 深拷贝一个数组，避免干扰
+  const data = JSON.parse(JSON.stringify(arr))
+  // 作一个hash
+  const obj = {}
+
+  data.forEach(item => {
+    // 是子节点
+    if (item.parent) {
+      if (!obj[item.parent]) obj[item.parent] = []
+
+      // 有爸爸的
+      obj[item.parent].push(item)
+    }
+  })
+
+  // 挑选父节点
+  const fathers = data.filter(item => !item.parent)
+  fathers.forEach(item => {
+    item.child = obj[item.name]
+  })
+
+  return fathers
+}
+
+function convert(list) {
+	const res = []
+	const map = list.reduce((accu, v) => {
+    // v是数组里的对象，引用类型
+    accu[v.name] = v
+
+    // 坑啊啊啊啊啊啊！！记得return accu
+    return accu
+  }, {})
+
+	for (const item of list) {
+    // 没有父节点
+		if (!item.parent) {
+			res.push(item)
+			continue
+		}
+    // 有父节点
+		if (item.parent in map) {
+			const parent = map[item.parent]
+			parent.children = parent.children || []
+			parent.children.push(item)
+		}
+	}
+	return res
 }
