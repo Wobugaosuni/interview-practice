@@ -28,3 +28,34 @@ export const twoSum2 = function(nums, target) {
 		}
 	}
 }
+
+export const find = function () {
+	const arr = Array.prototype.slice.call(arguments)
+
+	if (arr.length < 2) return []
+
+	let newArr = findTwoCommon(arr.shift(), arr.shift())
+	while (arr.length) {
+		newArr = findTwoCommon(newArr, arr.shift())
+	}
+
+	console.log('arr:', newArr)
+	return newArr
+}
+
+function findTwoCommon(arr, arr2) {
+	// hash
+	const obj = {}
+	arr.forEach(item => obj[item] = 0)
+	const result = []
+
+	arr2.forEach(item => {
+		if (item in obj) {
+			// 重复出现
+			// obj[item] += 1
+			result.push(item)
+		}
+	})
+
+	return result
+}

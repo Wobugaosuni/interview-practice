@@ -58,8 +58,8 @@ export const findAge = function (obj, name) {
       if (item.child) add(item.child, item.name)
     })
   }
-  console.log('arr:', JSON.stringify(arr, null, 2))
-  console.log('tree:', convert(arr))
+  // console.log('arr:', JSON.stringify(arr, null, 2))
+  // console.log('tree:', convert(arr))
 
   const result = arr.find(item => item.name === name)
   if (result) {

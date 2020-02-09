@@ -2,10 +2,13 @@ import React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import './index.styl'
-import {twoSum, twoSum2} from './util2'
+import {twoSum, twoSum2, find} from './util2'
 import {flattenArr, flattenArr2, flattenArr3, flattenArrAssignLevel, setArray, shallowCopy, shallowCopy2, shallowCopy3, deepCopy} from './util'
 import png1 from './1.png'
 
+const x = [1,2,3,4,5]
+const y = [2,3,4,5,6]
+const z = [3,4,5,6,7]
 
 class JsArray extends React.Component {
   givenArr = [[1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14]]]], 10]
@@ -57,6 +60,12 @@ class JsArray extends React.Component {
         <img width="600" src={png1} />
         <button onClick={() => twoSum([1,2,3,4,5,6], 7)}>测试</button>
         <button onClick={() => twoSum2([1,2,3,4,5,6], 7)}>使用哈希表，测试</button>
+
+        <h2>6. 实现函数find，找出重复出现的（头条一面）</h2>
+        <button onClick={() => {
+          // find(x, y) // [2,3,4,5]
+          find(x,y,z) // [3,4,5]
+        }}>测试</button>
       </div>
     )
   }
