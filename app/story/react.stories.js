@@ -22,6 +22,17 @@ import routerMd from '../containers/react-router/index.md'
 import Hoc from '../containers/react-hoc'
 import HocMd from '../containers/react-hoc/index.md'
 
+import ReactError from '../containers/react-error'
+import errorMd from '../containers/react-error/index.md'
+
+storiesOf('React', module)
+  .add('Error', () => <ReactError />, {
+    info: {
+      text: errorMd,
+      propTablesExclude: [ReactError]
+    }
+  })
+
 storiesOf('React', module)
   .add('Hoc', () => <Hoc />, {
     info: {
