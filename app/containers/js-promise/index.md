@@ -18,11 +18,30 @@
 
 2. Promise.then()`也是一个异步的函数，但跟`setTimeout`相比，`Promise.then()`是一个`micro task`，`setTimeout`是一个`macro task`，`Promise.then()`远比`setTimeout`执行的快
 
-3. `Promise.resolve()`是同步的，按顺序执行
+3. setTimeout返回一个数字id。如果在then里直接return setTimeout，会把该id传给下一个的then
 
-4. `Promise.resolve().then(() => {})`相当于`new Promise(resolve => resolve()).then()`
+4. `Promise.resolve()`是同步的，按顺序执行
 
-## 2.2 微任务比较
+5. `Promise.resolve().then(() => {})`相当于`new Promise(resolve => resolve()).then()`
+
+
+>**setTimeout、Promise、Async/Await 的区别**
+1. settimeout的回调函数放到宏任务队列里，等到执行栈清空以后执行； 
+2. promise.then里的回调函数会放到相应宏任务的微任务队列里，等宏任务里面的同步代码执行完再执行；
+3. async函数表示函数里面可能会有异步方法，await后面跟一个表达式，async方法执行时，**遇到await会立即执行表达式**，然后把**表达式后面的代码放到微任务队列里**，让出执行栈让同步代码先执行。
+
+>Promise、Async/Await
+1. 当有多个任务并发时，如果任务之间有依赖关系的，建议使用`Async/Await`
+2. 没有依赖关系时，建议使用`Promise.all`。如果使用`Async/Await`，会导致性能的降低
+```js
+async function test() {
+  // 以下代码没有依赖性的话，完全可以使用 Promise.all 的方式
+  // 如果有依赖性的话，其实就是解决回调地狱的例子了
+  await fetch('XXX1')
+  await fetch('XXX2')
+  await fetch('XXX3')
+}
+```
 
 ## 3. 抛出错误的姿势
 

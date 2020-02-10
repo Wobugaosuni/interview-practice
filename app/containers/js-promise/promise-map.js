@@ -19,6 +19,7 @@ class Limit {
     if (this.count < this.limit && this.queue.length) {
       // 等到 Promise 计数器小于阈值时，则出队执行
       const { fn, resolve, reject } = this.queue.shift()
+      // enqueue时的promise状态更改！！
       this.run(fn).then(resolve).catch(reject)
     }
   }

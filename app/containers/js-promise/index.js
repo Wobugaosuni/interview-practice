@@ -39,6 +39,20 @@ function taskOrder() {
   console.log(6)
 }
 
+function testTimeout() {
+  new Promise(resolve => {
+    console.log(1)
+    resolve()
+  }).then(() => {
+    console.log(2)
+    return setTimeout(() => {
+      console.log(3)
+    })
+  }).then(data => {
+    console.log(data)
+  })
+}
+
 function taskOrder2() {
   console.log('1')
   async function async1() {
@@ -208,6 +222,9 @@ class JsPromise extends React.Component {
 
         <h2>2.3 多个then的执行顺序</h2>
         <button onClick={() => thenThen()}>执行函数</button>
+
+        <h2>2.4 then return setTimeout</h2>
+        <button onClick={testTimeout}>执行函数</button>
 
         <h2>3. 抛出错误的姿势</h2>
         <SyntaxHighlighter language="javascript">
