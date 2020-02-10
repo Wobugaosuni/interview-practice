@@ -15,8 +15,7 @@ export default function() {
     return this.names
   }
 
-  console.log(new Father().getName())
-  debugger
+  console.log(new Father().getName()) // ["jack", "rose"]
 
   function Son() {}
   // 继承 Father 的属性和方法
@@ -26,8 +25,8 @@ export default function() {
 
   const son1 = new Son()
   son1.names.push('lily')
-  console.log('son1 names:', son1.names)
-  console.log('son1 getName:', son1.getName()) // 实现了原型对象方法的继承
+  console.log('son1 names:', son1.names) // ["jack", "rose", "lily"]
+  console.log('son1 getName:', son1.getName()) // 实现了原型对象方法的继承 ["jack", "rose", "lily"]
 
   const father = new Father()
   console.log('father names:', father.names)

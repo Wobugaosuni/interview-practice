@@ -6,7 +6,7 @@ import '../../common/stylus/base.styl'
 import {createPromise, promiseByReduce, promiseByAsync, promiseByShift} from './promise-queue'
 import {promiseRace} from './promise-timeout'
 import {createPromise2, promiseAll} from './promise-all'
-import {myAjax} from '../../common/js/utils'
+import {myAjax, myAjaxRandom} from '../../common/js/utils'
 
 import './promise-map'
 
@@ -71,6 +71,7 @@ function howError() {
   Promise.resolve()
     .then(() => {
       return new Error('error!!!')
+      // return Promise.reject(new Error('error!!!'))
     })
     .then((res) => {
       console.log('then: ', res)
@@ -156,9 +157,9 @@ class JsPromise extends React.Component {
 
   promiseAllTest() {
     promiseAll([
-      myAjax(2000),
-      myAjax(1000),
-      myAjax(3000),
+      myAjaxRandom(3000),
+      myAjaxRandom(1000),
+      myAjaxRandom(1000),
     ])
     .then(content => {
       console.log('all comes:', content)

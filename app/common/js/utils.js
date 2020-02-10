@@ -24,7 +24,7 @@ export const myAjaxRandom = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       // 模仿请求成功和失败
-      if (requestTime > 3000) {
+      if (requestTime > 2000) {
         resolve(`请求成功:${requestTime}`)
       } else {
         reject('请求失败')

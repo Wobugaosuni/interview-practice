@@ -16,13 +16,13 @@ export default function() {
   
   const son1 = new Son()
   son1.names.push('lily')
-  console.log('son1 names:', son1.names)
-  console.log('son1 getName:', son1.getName()) // 没法实现原型对象方法的继承，会报错
+  console.log('son1 names:', son1.names) // ['jack', 'rose', 'lily']
+  // console.log('son1 getName:', son1.getName()) // 没法实现原型对象方法的继承，会报错
 
   const father = new Father()
-  console.log('father names:', father.names)
-  console.log('father getName:', father.getName())
+  console.log('father names:', father.names) // ['jack', 'rose']
+  console.log('father getName:', father.getName()) // ['jack', 'rose']
   
   const son2 = new Son()
-  console.log('son2 names:', son2.names)
+  console.log('son2 names:', son2.names) // ['jack', 'rose']
 }

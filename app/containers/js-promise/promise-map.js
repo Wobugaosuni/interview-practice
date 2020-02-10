@@ -6,6 +6,7 @@ class Limit {
   }
 
   // 入
+  // 返回promise实例，带有状态的！
   enqueue (fn) {
     // 关键代码: fn, resolve, reject 统一管理
     return new Promise((resolve, reject) => {
@@ -33,6 +34,7 @@ class Limit {
     return value
   }
 
+  // 返回promise实例
   build (fn) {
     if (this.count < this.limit) {
       // 如果没有到达阈值，直接执行
@@ -47,6 +49,7 @@ class Limit {
 Promise.map = function(list, concurrency) {
   const limit = new Limit(concurrency)
   const listPromise = list.map(item => limit.build(item))
+  console.log('listPromise:', listPromise)
 
-  return Promise.all(listPromise)
+  return Promise.all(listPromise).then(data => console.log('data:', data))
 }
