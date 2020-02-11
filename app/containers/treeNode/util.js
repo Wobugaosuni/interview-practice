@@ -54,3 +54,23 @@ export function deepLevelOrder(root) {
   console.log('result:', result)
   return result
 }
+
+/**
+ * 锯齿形层次遍历
+ * 第二层：从右往左
+ * 第三层：从左往右
+ * 需要记住层级
+ */
+export function zigzagLevelOrder(root) {
+  let result = deepLevelOrder(root)
+  result = result.map((item, index) => {
+    if (index % 2) {
+      // 倒序
+      return item.reverse()
+    }
+    // 正序
+    return item
+  })
+  console.log('result:', result)
+  return result
+}
