@@ -1,0 +1,3 @@
+## 文档参考
+
+- https://leetcode-cn.com/problems/valid-parentheses/solution/javascript-you-xiao-de-gua-hao-by-rhinoc/

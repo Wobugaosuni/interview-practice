@@ -4,7 +4,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 import './index.styl'
 import '../../common/stylus/base.styl'
 import png1 from './1.png'
-import {isValid} from './util'
+import {isValid, isValid2} from './util'
 
 class AglorithmSymbolIsValid extends React.Component {
   render() {
@@ -12,11 +12,17 @@ class AglorithmSymbolIsValid extends React.Component {
       <div role="containers:AglorithmSymbolIsValid">
         <h2>有效的括号</h2>
         <img src={png1} width={500} />
-        <button onClick={() => isValid("()")}>测试</button>
-        <button onClick={() => isValid("()[]{}")}>测试</button>
-        <button onClick={() => isValid("(]")}>测试</button>
-        <button onClick={() => isValid("([)]")}>测试</button>
-        <button onClick={() => isValid("{[]}")}>测试</button>
+        <button onClick={() => isValid("()")}>测试1</button>
+        <button onClick={() => isValid("()[]{}")}>测试1</button>
+        <button onClick={() => isValid("(]")}>测试1</button>
+        <button onClick={() => isValid("([)]")}>测试1</button>
+        <button onClick={() => isValid("{[]}")}>测试1</button>
+
+        <button onClick={() => isValid2("()")}>暴力</button>
+        <button onClick={() => isValid2("()[]{}")}>暴力</button>
+        <button onClick={() => isValid2("(]")}>暴力</button>
+        <button onClick={() => isValid2("([)]")}>暴力</button>
+        <button onClick={() => isValid2("{[]}")}>暴力</button>
       </div>
     )
   }

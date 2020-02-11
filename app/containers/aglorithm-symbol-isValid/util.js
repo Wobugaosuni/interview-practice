@@ -32,3 +32,22 @@ export function isValid(str) {
     return true
   }
 }
+
+// 暴力之美
+export function isValid2(str) {
+  if(str.length % 2) return false
+
+  while (str.length) {
+    let temp = str
+
+    str = str.replace('()', '')
+    str = str.replace('{}', '')
+    str = str.replace('[]', '')
+
+    // 遇到不能消除的
+    if (temp === str) return false
+  }
+
+  console.log('有效的数组')
+  return true
+}
