@@ -9,10 +9,16 @@
 #### Response Headers
 
 - cache-control：强缓存、协商缓存
+
 - Content-Type：服务端返回的数据类型
 - Content-Encoding：服务端实际返回的数据压缩方式
 - Content-Language：服务端返回的语言
 
+- Content-Security-Policy：内容安全策略，以白名单的形式配置可信任的内容来源
+
+- Access-Control-Allow-Origin、Access-Control-Allow-Methods
+
+- Connection：默认是`keep-alive`，可设置`Connection: close`关闭长连接
 
 #### Request Headers
 
@@ -67,3 +73,23 @@ TCP三次握手是TCP的建立连接的过程，所谓连接就是客户端和�
 4. 主机2关闭连接，主机1也可以关闭连接
 
 参考：https://github.com/jawil/blog/issues/14
+
+## 网页中的图片资源为什么分放在不同的域名下？
+
+- http1.1下  
+chrome最多可以开启6-8个TCP连接。
+一个TCP连接可以发送多个http请求，串行，但前提是相同的域名。
+不同的域名可以利用多个TCP的资源，提高网页加载速度
+
+- http2.0
+一个TCP连接可以发送多个http请求，而且是并行的。并行数取决于所在的浏览器设置
+
+## HTTP vs HTTPS
+
+- HTTPS协议需要到CA申请证书，一般免费证书很少，需要交费。
+
+- HTTP协议运行在TCP之上，所有传输的内容都是明文，HTTPS运行在SSL/TLS之上，SSL/TLS运行在TCP之上，所有传输的内容都经过加密的。
+
+- HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。
+
+- HTTPS可以有效的防止运营商劫持，解决了防劫持的一个大问题。

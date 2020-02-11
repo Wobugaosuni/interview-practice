@@ -1,5 +1,37 @@
 const isObject = o => Object.prototype.toString.call(o) === '[object Object]'
 
+const type = o => Object.prototype.toString.call(o).slice(8, -1)
+
+/**
+ * 深拷贝对象（对象里可能有数组，数组里可能有对象）
+ */
+export function clone(obj) {
+  let result
+
+  if (type(obj) === 'Array') {
+    result = []
+  } else if (type(obj) === 'Object') {
+    result = {}
+  } else {
+    return obj
+  }
+
+  // 循环，obj有可能是数组或者对象
+  for (let i in obj) {
+    const val = obj[i]
+
+    if (type(val) === 'Object' || type(val) === 'Array') {
+      // 需要继续遍历，拿到基本值
+      result[i] = clone(val)
+    } else {
+      // 基本值或者函数、正则、日期之类的
+      result[i] = val
+    }
+  }
+
+  return result
+}
+
 export const deepCloneObj = function (obj) {
   const result = {}
 
