@@ -5,7 +5,8 @@ import './index.styl'
 import '../../common/stylus/base.styl'
 import png1 from './1.png'
 import png2 from './2.png'
-import { breadthLevelOrder, deepLevelOrder, zigzagLevelOrder } from './util'
+import png3 from './3.png'
+import { breadthLevelOrder, deepLevelOrder, zigzagLevelOrder, rightSideView } from './util'
 
 const data = {
   val: 3,
@@ -53,6 +54,10 @@ class TreeNode extends React.Component {
         <img src={png2} width={500} />
         <button onClick={() => zigzagLevelOrder(data)}>测试</button>
         <button onClick={() => zigzagLevelOrder(data2)}>测试</button>
+
+        <h2>二叉树的右视图</h2>
+        <img src={png3} width={500} />
+        <button onClick={() => rightSideView(data2, 'right')}>测试</button>
       </div>
     )
   }

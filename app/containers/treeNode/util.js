@@ -74,3 +74,13 @@ export function zigzagLevelOrder(root) {
   console.log('result:', result)
   return result
 }
+
+export function rightSideView(root, side) {
+  let arr = deepLevelOrder(root)
+  // 遍历取数组最后一位
+  const result = arr.map(item => {
+    return side === 'right' ? item.pop() : item.shift()
+  })
+  console.log('result:', result)
+  return result
+}
