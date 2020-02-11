@@ -7,7 +7,7 @@ import treeNodeMd from '../containers/treeNode/index.md'
 import Oorder from '../containers/treeNode/order'
 import OrderMd from '../containers/treeNode/order.md'
 
-storiesOf('treeNode', module)
+storiesOf('Aglorithm-treeNode', module)
   .add('treeNode', () => <TreeNode />, {
     info: {
       text: treeNodeMd,
@@ -15,7 +15,7 @@ storiesOf('treeNode', module)
     }
   })
 
-storiesOf('treeNode', module)
+storiesOf('Aglorithm-treeNode', module)
   .add('前中后序遍历', () => <Oorder />, {
     info: {
       text: OrderMd,

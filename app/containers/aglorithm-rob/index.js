@@ -7,10 +7,10 @@ import png1 from './1.png'
 import png2 from './2.png'
 import {rob, rob2} from './util'
 
-class JsOther extends React.Component {
+class Rob extends React.Component {
   render() {
     return (
-      <div role="containers:JsOther">
+      <div role="containers:Rob">
         <h2>打家劫舍</h2>
         <img width="600" src={png1} />
         <button onClick={() => console.log(rob([2,7,9,3,1]))}>测试</button>
@@ -24,4 +24,4 @@ class JsOther extends React.Component {
   }
 }
 
-export default JsOther
+export default Rob

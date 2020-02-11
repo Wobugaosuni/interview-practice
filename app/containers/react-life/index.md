@@ -13,18 +13,25 @@
 
 ## 三个阶段被调用的生命周期
 
-- 挂载阶段
-construtor
-getDerivedStateFromProps
-render
-componentDidMount
+- 挂载阶段  
+construtor  
+getDerivedStateFromProps  
+render  
+componentDidMount  
 
-- 更新阶段(setState)
-getDerivedStateFromProps
-shouldComponentUpdate(nextProps, nextState)
-render
-getSnapshotBeforeUpdate
-componentDidUpdate
+- 更新阶段(setState)  
+getDerivedStateFromProps  
+shouldComponentUpdate(nextProps, nextState)  
+render  
+getSnapshotBeforeUpdate  
+componentDidUpdate  
 
-- 组件移除阶段
-componentWillUnmount
+- 组件移除阶段  
+componentWillUnmount  
+
+## static getDerivedStateFromProps(props, state)
+
+此方法适用于罕见的用例
+
+## getSnapshotBeforeUpdate(prevProps, prevState)
+此用法并不常见

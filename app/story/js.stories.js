@@ -33,9 +33,6 @@ import JsTree from '../containers/js-tree'
 import JsPath from '../containers/js-path'
 import PathMd from '../containers/js-path/index.md'
 
-import JsOther from '../containers/js-other'
-import OtherMd from '../containers/js-other/index.md'
-
 import JsObject from '../containers/js-object'
 import JsObjectMd from '../containers/js-object/index.md'
 
@@ -45,14 +42,6 @@ storiesOf('Js', module)
       inline: true,
       text: ClosureMd,
       propTablesExclude: [JsClosure]
-    }
-  })
-
-storiesOf('Js', module)
-  .add('其他', () => <JsOther />, {
-    info: {
-      text: OtherMd,
-      propTablesExclude: [JsOther]
     }
   })
 
