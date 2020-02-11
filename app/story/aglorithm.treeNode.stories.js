@@ -1,11 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import TreeNode from '../containers/treeNode'
-import treeNodeMd from '../containers/treeNode/index.md'
+import TreeNode from '../containers/aglorithm-treeNode'
+import treeNodeMd from '../containers/aglorithm-treeNode/index.md'
 
-import Oorder from '../containers/treeNode/order'
-import OrderMd from '../containers/treeNode/order.md'
+import Oorder from '../containers/aglorithm-treeNode/order'
+import OrderMd from '../containers/aglorithm-treeNode/order.md'
 
 storiesOf('Aglorithm-treeNode', module)
   .add('treeNode', () => <TreeNode />, {
