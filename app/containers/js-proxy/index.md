@@ -12,6 +12,7 @@ vue2.0
 
 是 defineProperty 的全方位加强版
 vue3.0
+mobx5.0
 
 #### 优点
 
