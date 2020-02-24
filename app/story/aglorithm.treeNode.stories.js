@@ -5,7 +5,7 @@ import TreeNode from '../containers/aglorithm-treeNode'
 import treeNodeMd from '../containers/aglorithm-treeNode/index.md'
 
 import Oorder from '../containers/aglorithm-treeNode/order'
-import OrderMd from '../containers/aglorithm-treeNode/order.md'
+import orderMd from '../containers/aglorithm-treeNode/order.md'
 
 storiesOf('Aglorithm-treeNode', module)
   .add('treeNode', () => <TreeNode />, {
@@ -18,7 +18,7 @@ storiesOf('Aglorithm-treeNode', module)
 storiesOf('Aglorithm-treeNode', module)
   .add('前中后序遍历', () => <Oorder />, {
     info: {
-      text: OrderMd,
+      text: orderMd,
       propTablesExclude: [Oorder]
     }
   })

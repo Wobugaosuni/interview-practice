@@ -20,7 +20,7 @@ export const lengthOfLongestSubstring = function(s) {
     }
     // 把当前元素放进去
     arr.push(item)
-    console.log('arr:', arr)
+    // console.log('arr:', arr)
     // 每次更新，保存最长的长度
     max = arr.length > max ? arr.length : max
   }

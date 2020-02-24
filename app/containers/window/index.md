@@ -1,16 +1,16 @@
 ## window上有哪些属性
 
-- window.URL.createObjectURL()  
+1. window.URL.createObjectURL()  
 生成动态url
 
-- innerWidth/innerHeight
+2. innerWidth/innerHeight
 
-- history  
+3. history  
 window.history.back()  
 window.history.forward()  
 window.history.go(num)  
 
-- location  
+4. location  
 pathname  
 href  
 search  

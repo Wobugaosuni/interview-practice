@@ -21,7 +21,7 @@ class JsPath extends React.Component {
         </div>
         <img width="400" src={png1} />
         <img width="200" src={png2} />
-        <button onClick={() => simplifyPath('/home/')}>测试</button>
+        <button onClick={() => simplifyPath('/a/./b/../../c/')}>测试</button>
       </div>
     )
   }
