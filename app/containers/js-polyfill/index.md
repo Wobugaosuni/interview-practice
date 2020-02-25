@@ -7,34 +7,6 @@
 2. 执行该函数
 3. 删除该函数
 
-```js
-Function.prototype.call2 = function(obj) {
-    // 获取调用call的函数，用this可以获取。
-    // this 指向函数bar
-    obj.fn = this;
-
-    // 获取其他参数
-    const otherArgu = [...arguments].slice(1)
-
-    // 执行函数
-    obj.fn(otherArgu);
-
-    // 删除该函数
-    delete obj.fn;
-}
-
-// 测试一下
-var foo = {
-    value: 1
-};
-
-function bar(val) {
-    console.log(this.value + val);
-}
-
-bar.call2(foo, 'xxx'); // 1
-```
-
 文档参考：[](https://juejin.im/post/5907eb99570c3500582ca23c)
 
 ## new操作做了什么事情
