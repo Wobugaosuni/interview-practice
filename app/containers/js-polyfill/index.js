@@ -3,6 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import './index.styl'
 import '../../common/stylus/base.styl'
+import './util'
 
 function Person(name) {
   // console.log('this:', this.name)
@@ -17,26 +18,6 @@ function Person(name) {
 }
 
 function callPolyfill() {
-  Function.prototype.call2 = function(obj) {
-    // 获取调用call的函数，用this可以获取。
-    // this 指向函数bar
-    obj.fn = this
-
-    // 获取其他参数
-    // 但这个是es6的写法！！
-    // const otherArgu = [...arguments].slice(1)
-    const otherArgu = []
-    for (let i = 1; i < arguments.length; i++) {
-      otherArgu.push(arguments[i])
-    }
-    const arguStr = otherArgu.join(',')
-    // 执行函数
-    eval('obj.fn(arguStr)')
-
-    // 删除该函数
-    delete obj.fn
-  }
-
   // 测试一下
   var foo = {
       value: 1

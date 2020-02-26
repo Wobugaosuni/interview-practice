@@ -27,3 +27,18 @@ F.call(obj);
 3、新创建的对象由 this 所引用，并且最后隐式的返回 this.
 
 ## 怎么判断构造函数的调用是 new 还是 普通函数调用？
+
+使用 `instanceof` 判断
+```js
+function Person(name) {
+  // console.log('this:', this.name)
+  // 普通函数调用：报错，this: undefined
+  // new 调用：Person类
+  if (this instanceof Person) {
+    console.log('new调用')
+  } else {
+    throw new Error('普通函数调用')
+  }
+  this.name = name
+}
+```
