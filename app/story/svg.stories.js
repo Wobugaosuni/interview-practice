@@ -1,13 +1,37 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import Svg from '../containers/svg'
-import svgMd from '../containers/svg/index.md'
+import SvgBigData from '../containers/svg-bigData'
+import svgBigDataMd from '../containers/svg-bigData/index.md'
 
-storiesOf('Svg', module)
-  .add('大数据渲染', () => <Svg />, {
+import Svg from '../containers/svg'
+import SvgMd from '../containers/svg/index.md'
+
+import SvgPie from '../containers/svg-pie'
+import svgPieMd from '../containers/svg-pie/index.md'
+
+storiesOf('可视化', module)
+  .add('大数据渲染', () => <SvgBigData />, {
     info: {
-      text: svgMd,
+      text: svgBigDataMd,
+      propTablesExclude: [SvgBigData]
+    }
+  })
+
+storiesOf('可视化', module)
+  .add('svg?', () => <Svg />, {
+    info: {
+      inline: true,
+      text: SvgMd,
       propTablesExclude: [Svg]
     }
   })
+
+// storiesOf('可视化', module)
+//   .add('21分钟精通画饼图', () => <SvgPie />, {
+//     info: {
+//       inline: true,
+//       text: svgPieMd,
+//       propTablesExclude: [SvgPie]
+//     }
+//   })

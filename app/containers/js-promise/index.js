@@ -6,7 +6,7 @@ import '../../common/stylus/base.styl'
 import {createPromise, promiseByReduce, promiseByAsync, promiseByShift} from './promise-queue'
 import {promiseRace} from './promise-timeout'
 import {createPromise2, promiseAll} from './promise-all'
-import {myAjax, myAjaxRandom} from '../../common/js/utils'
+import {myAjaxRandom} from '../../common/js/utils'
 
 import './promise-map'
 
@@ -189,7 +189,11 @@ class JsPromise extends React.Component {
       console.log('In ', i)
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve(i * 1000) 
+          if (i % 2) {
+            reject('请求失败')
+          } else {
+            resolve(i * 1000)
+          }
           console.log('Out', i, 'Out')
         }, i * 1000)
       })

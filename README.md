@@ -1,6 +1,6 @@
 ## 使用
 
-1. npm start 启动
+方法一. npm start 启动
 ```bash
 ## 安装项目依赖
 npm install
@@ -12,7 +12,8 @@ npm run mock
 npm start
 ```
 
-2. storybook启动
+**建议使用 storybook 启动
+方法二. storybook启动
 ```bash
 npm run storybook
 ```

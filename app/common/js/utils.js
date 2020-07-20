@@ -3,13 +3,27 @@ import {STYLE} from '../static'
 /**
  * 模仿异步请求，成功
 */
-export const myAjax = (time) => {
+export const myAjaxSuccess = (time) => {
   const requestTime = time || Math.round(Math.random() * 10000)
   console.log('请求中。。。')
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(`请求成功:${requestTime}`)
+    }, requestTime)
+  })
+}
+
+/**
+ * 模仿异步请求，失败
+*/
+export const myAjaxFail = (time) => {
+  const requestTime = time || Math.round(Math.random() * 10000)
+  console.log('请求中。。。')
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject(`请求失败:${requestTime}`)
     }, requestTime)
   })
 }

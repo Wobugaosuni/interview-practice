@@ -39,6 +39,17 @@ import jsObjectMd from '../containers/js-object/index.md'
 import JsPolyfill from '../containers/js-polyfill'
 import polyfillMd from '../containers/js-polyfill/index.md'
 
+import JsSetMap from '../containers/js-set-map'
+import setMapMd from '../containers/js-set-map/index.md'
+
+storiesOf('Js', module)
+  .add('set和map性能', () => <JsSetMap />, {
+    info: {
+      text: setMapMd,
+      propTablesExclude: [JsSetMap]
+    }
+  })
+
 storiesOf('Js', module)
   .add('polyfill', () => <JsPolyfill />, {
     info: {

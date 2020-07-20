@@ -26,13 +26,26 @@ class Limit {
 
   // async/await 简化错误处理
   async run (fn) {
-    this.count++
     // 维护一个计数器
-    const value = await fn()
+    this.count++
+    let obj = {}
+    try {
+      const value = await fn()
+      obj = {
+        status: 'fulfilled',
+        value
+      }
+    } catch(error) {
+      console.log('error:', error)
+      obj = {
+        status: 'rejected',
+        reason: error
+      }
+    }
     this.count--
     // 执行完，看看队列有东西没
     this.dequeue()
-    return value
+    return obj
   }
 
   // 返回promise实例

@@ -18,6 +18,7 @@ class JsWorker extends React.Component {
       console.log(`一秒后的定时器，实际延时了 ${+new Date() - startTime} 毫秒`)
     }, 1000)
 
+    // 50亿
     for (let i = 0; i < 5000000000; i++) {
       total += i
     }
