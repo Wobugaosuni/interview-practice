@@ -12,7 +12,7 @@ npm run mock
 npm start
 ```
 
-**建议使用 storybook 启动
+**建议使用 storybook 启动**
 方法二. storybook启动
 ```bash
 npm run storybook
